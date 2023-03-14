@@ -1,3 +1,4 @@
+![Time Management Background Image](img/time-management-bg.png)
 # Time Management Software
 
 ## Team
