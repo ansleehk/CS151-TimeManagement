@@ -26,19 +26,15 @@ Therefore, the proposed time management software would be an invaluable tool for
 Similar to how we humans like to start a morning routine after waking up, we hope using our application becomes apart of the user's routine. We want to help the user actively plan out their day and reduce any amount of stress that may occur from having too many events to participate in. This application will follow a calender based format in which activities and events will appear to help the user get a general plan of how they're day is going to go. 
 
 ## Operations
-Upon opening the application the user will be greeted with a login/signup page in which they create or login to an account. 
-
-When the user signs up for an account, general information will be asked about the user such as their name, date of birth, email, etc. Once the user fills these out, they'll be asked to fill out timeslots that relate to what all humans do (wake up, sleep, eat, etc). This is so we can get a rough idea of when the user start/end their day. 
-
-After filling that out, they'll be asked if they have any common activities or events that occur daily, weekly, etc. The user will be able to checkbox the days of the week in which the activity occurs, it's priority level on a scale on 1-5, and either a scheduled timeslot or the amount of time they want to spend on that activity. Additionally, we'd want the user to include daily events and activities that aren't normally considered ones someone wouldn't include in their plan. Examples include how much or what time they want to play videogames, hang out with friends, meal prep, gardening, etc. This helps us because we can get an idea of how the user wants to spend their day to where we can organize both activities they want to do and activities they'll eventually add later on.
-
-Afterwards, the user will then be shown their own calender, organized with the events/actions they previously answered. The user will be able to see their calender in either a day, week, or month format. Buttons are also present in which the user can either mark one or all event(s) in either ending/cancelling the event early or adding more time. Another button is available for the user to add a new event where it asks the same format as before (name of event, when or how often it occurs, priority level, and time slot/time wanting to spend on that event). Upon finishing either actions, the calender will automatically update depending on the action they chose, while considering the time slots and time requested from already present events.
-
-
-
-
-
-
-
-
-
+- Upon opening the application, the user will be greeted with a login/signup page.
+- Users will create or login to an account by providing general information, such as their name, date of birth, email, etc.
+- Users will be asked to fill out timeslots that relate to common human activities, such as waking up, sleeping, eating, etc., to give a rough idea of their daily schedule.
+- Users will be prompted to indicate any common activities or events that occur daily, weekly, etc.
+- Users can checkbox the days of the week when the activity occurs, indicate its priority level on a scale of 1-5, and choose a scheduled timeslot or the amount of time they want to spend on that activity.
+- Users can also include daily events and activities that may not be typically considered when planning a schedule, such as playing videogames, hanging out with friends, meal prepping, gardening, etc.
+- The above information helps to organize both the activities users want to do and the activities they may add later on.
+- After completing the above steps, users will see their own calendar, organized with the events and actions they previously entered.
+- Users can view their calendar in a day, week, or month format.
+- Buttons are present that allow users to mark one or all events for ending or canceling an event early or adding more time.
+- A button is also available for users to add a new event, where they will provide the same information as before (name of the event, when or how often it occurs, priority level, and time slot/time they want to spend on that event).
+- Upon finishing any of the above actions, the calendar will automatically update while considering the time slots and time requested from already present events.
