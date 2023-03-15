@@ -22,8 +22,14 @@ Furthermore, students today face unique challenges that previous generations did
 
 Therefore, the proposed time management software would be an invaluable tool for students of all ages and backgrounds. By leveraging the latest technology and proven time management techniques, it will help students optimize their schedules, prioritize their tasks, and stay focused and productive throughout the day. With the help of this software, students will be better equipped to meet their academic goals, excel in their extracurricular activities, and enjoy a more balanced and fulfilling life overall.
 
+## Similar Applications
+
+- Monday [1]
+- Asana [2]
+- Todoist [3]
+
 ## Solution w/ Functionality
-Similar to how we humans like to start a morning routine after waking up, we hope using our application becomes apart of the user's routine. We want to help the user actively plan out their day and reduce any amount of stress that may occur from having too many events to participate in. This application will follow a calender based format in which activities and events will appear to help the user get a general plan of how they're day is going to go. 
+Similar to how we humans like to start a morning routine after waking up, we hope using our application becomes apart of the user's routine. We want to help the user actively plan out their day and reduce any amount of stress that may occur from having too many events to participate in. This application will follow a calender based format in which activities and events will appear in. It's our job to help the user organize events and activities based on their time length and priority so they can have a general plan on how they're day is going to be. 
 
 ## Operations
 - Upon opening the application, the user will be greeted with a login/signup page.
@@ -38,3 +44,8 @@ Similar to how we humans like to start a morning routine after waking up, we hop
 - Buttons are present that allow users to mark one or all events for ending or canceling an event early or adding more time.
 - A button is also available for users to add a new event, where they will provide the same information as before (name of the event, when or how often it occurs, priority level, and time slot/time they want to spend on that event).
 - Upon finishing any of the above actions, the calendar will automatically update while considering the time slots and time requested from already present events.
+
+## References
+- [1] Monday: https://monday.com
+- [2] Asana: https://asana.com/company
+- [3] Todoist: https://todoist.com
