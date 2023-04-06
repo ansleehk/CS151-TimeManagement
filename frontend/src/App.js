@@ -2,6 +2,7 @@
 import { LoginPage } from './pages/login.jsx';
 import { HomePage } from './pages/home.jsx';
 import { MenuBar } from './components/menuBar.jsx';
+import "./styles/app.scss";
 import {
   BrowserRouter as Router,
   Routes,
