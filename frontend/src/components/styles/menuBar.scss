@@ -23,19 +23,15 @@ menu#DesktopMenuBar {
     display: none;
   }
 
-  nav#menu {
+  nav {
       display: block;
+      float: right;
 
       ul {
-          float: right;
           list-style-type: none;
           margin: 0;
           padding: 0;
-          position: relative;
-          bottom: 20px;
-      
           li {
-            float: right;
             display: inline-flex;
             flex-direction: row;
       
@@ -50,7 +46,72 @@ menu#DesktopMenuBar {
           }
         }
   }
+  div#setting-dropdown{
+    float: right;
+    position: relative;
+    top: 7px;
+    width: 28px;
+    height: 100%;
 
+    button#setting-btn{
+      background: none;
+      border: none;
+      float: right;
+      margin: 0;
+
+      img {
+        filter: invert(100%);
+        width: 17px;
+      }
+    }
+    menu#setting{
+      display: none;
+      position: absolute;
+      top: 17px;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background-color: $menu-primary-color;
+
+      ul {
+        width: 100%;
+        height: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+
+        li {
+          display: flex;
+          flex-direction: column;
+          
+    
+          a {
+            width: 100%;
+            height: 35px;
+            padding: 8px 10px 8px 10px;
+            box-sizing: border-box;
+            color: $primary-font-color;
+            display: block;
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 0.1px solid $primary-font-color;
+          }
+
+          a:hover {
+            background-color: $primary-font-color;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+  }
+
+  div#setting-dropdown:hover menu#setting {
+      display: block;
+  }
 
 }
 
