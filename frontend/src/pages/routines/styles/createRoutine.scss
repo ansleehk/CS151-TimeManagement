@@ -1,0 +1,23 @@
+@import "../../../styles/_global.scss";
+
+div#CreateRoutinePage{
+    width: 500px;
+    height: 500px;
+    border: 1px solid $primary-color;
+    text-align: center;
+
+    h1 {
+        font-size: 25px;
+    }
+
+    form {
+        input[type=text] {
+            width: 200px;
+            height: 25px;
+            padding-left: 15px;
+            box-sizing: content-box;
+            border-radius: 15px;
+            border: 1px solid $primary-color;
+        }
+    }
+}
