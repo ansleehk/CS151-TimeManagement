@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon } from 'mdbreact';
-import Navigation from '../components/navbar';
-import '../public/loginForm.css';
-import timePicture from '../public/images/timePicture.png'
+import '../styles/loginForm.css';
+import timePicture from '../components/img/timePicture.png'
 
 //loginForm function, takes in login and error props from loginPage.js
 function LoginForm({ Login, error }) {
