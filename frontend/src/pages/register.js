@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon } from 'mdbreact';
-import Navigation from '../components/navbar';
-import '../public/register.css';
-import timePicture from '../public/images/timePicture.png'
+import '../styles/register.css';
+import timePicture from '../components/img/timePicture.png'
 
 
 function Register() {
