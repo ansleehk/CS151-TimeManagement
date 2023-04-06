@@ -44,6 +44,10 @@ menu#DesktopMenuBar {
           text-decoration: none;
           font-size: 15px;
         }
+
+        a:hover {
+          color: rgb(190, 190, 190);
+        }
       }
     }
   }
@@ -63,6 +67,12 @@ menu#DesktopMenuBar {
       img {
         filter: invert(100%);
         width: 17px;
+      }
+    }
+
+    button#setting-btn:hover {
+      img {
+        filter: invert(80%);
       }
     }
     menu#setting {

@@ -2,6 +2,7 @@ import { LoginPage } from "./pages/login.jsx";
 import { HomePage } from "./pages/home/index.jsx";
 import { MenuBar } from "./components/menuBar.jsx";
 import { RegisterPage } from "./pages/register.jsx";
+import { CreateRoutinePage } from "./pages/routines/createRoutine.jsx";
 import "./styles/app.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -13,6 +14,9 @@ function App() {
         <div id="content-container">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="routine">
+              <Route path="create" element={<CreateRoutinePage />} />
+            </Route>
           </Routes>
         </div>
       </div>
