@@ -17,7 +17,6 @@ export function LoginPage({ Login, error }) {
 	return (
 		<form onSubmit={submitHandler}>
 			<nav>
-				<Navigation />
 			</nav>
 			<div className='loginPage'>
 

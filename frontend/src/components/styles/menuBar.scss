@@ -3,6 +3,7 @@
 $menu-primary-color: black;
 
 menu#DesktopMenuBar {
+  z-index: 5000;
   width: 100%;
   height: 50px;
   position: fixed;
@@ -24,36 +25,36 @@ menu#DesktopMenuBar {
   }
 
   nav {
-      display: block;
-      float: right;
+    display: block;
+    float: right;
 
-      ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          li {
-            display: inline-flex;
-            flex-direction: row;
-      
-            a {
-              color: $primary-font-color;
-              display: block;
-              padding: 8px;
-              margin: 0 8px 0 8px;
-              text-decoration: none;
-              font-size: 15px;
-            }
-          }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-flex;
+        flex-direction: row;
+
+        a {
+          color: $primary-font-color;
+          display: block;
+          padding: 8px;
+          margin: 0 8px 0 8px;
+          text-decoration: none;
+          font-size: 15px;
         }
+      }
+    }
   }
-  div#setting-dropdown{
+  div#setting-dropdown {
     float: right;
     position: relative;
     top: 7px;
     width: 28px;
     height: 100%;
 
-    button#setting-btn{
+    button#setting-btn {
       background: none;
       border: none;
       float: right;
@@ -64,7 +65,7 @@ menu#DesktopMenuBar {
         width: 17px;
       }
     }
-    menu#setting{
+    menu#setting {
       display: none;
       position: absolute;
       top: 17px;
@@ -85,8 +86,7 @@ menu#DesktopMenuBar {
         li {
           display: flex;
           flex-direction: column;
-          
-    
+
           a {
             width: 100%;
             height: 35px;
@@ -106,22 +106,21 @@ menu#DesktopMenuBar {
         }
       }
     }
-
   }
 
   div#setting-dropdown:hover menu#setting {
-      display: block;
+    display: block;
   }
-
 }
 
 menu#MobileMenuBar {
-    width: 100%;
-    height: 60px;
-    background-color: $menu-primary-color;
-    margin: 0;
-    padding: 10px 50px 10px 50px;
-    box-sizing: border-box;
-    position: fixed;
-    bottom: 0;
+  z-index: 5000;
+  width: 100%;
+  height: 60px;
+  background-color: $menu-primary-color;
+  margin: 0;
+  padding: 10px 50px 10px 50px;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
 }
