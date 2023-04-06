@@ -51,8 +51,8 @@ menu#DesktopMenuBar {
     float: right;
     position: relative;
     top: 7px;
-    width: 28px;
-    height: 100%;
+    width: 30px;
+    height: calc(100% + 2px);
 
     button#setting-btn {
       background: none;
