@@ -16,9 +16,6 @@ export function LoginPage({ Login, error }) {
 	// this is what we see on the front page
 	return (
 		<form onSubmit={submitHandler}>
-			<nav>
-				<Navigation />
-			</nav>
 			<div className='loginPage'>
 
 				{/* Form rendering, onChange to listen for user events(inputs), setDetails is updated for details to be updated into condition in loginPage.js*/}
@@ -59,7 +56,7 @@ export function LoginPage({ Login, error }) {
 											</MDBBtn>
 										</div>
 										<div className='loginFooter'>
-											<p className="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
+											<p className="mb-0">Don't have an account? <a href="./register" class="text-white-50 fw-bold">Sign Up</a></p>
 										</div>
 									</MDBCardBody>
 								</MDBCard>
@@ -74,8 +71,6 @@ export function LoginPage({ Login, error }) {
 						</MDBRow>
 				</div>
 			</div>
-
-
 		</form>
 	)
 }
