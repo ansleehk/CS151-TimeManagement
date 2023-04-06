@@ -1,10 +1,12 @@
 @import "../../styles/_global";
 
-menu#MenuBar {
+$menu-primary-color: black;
+
+menu#DesktopMenuBar {
   width: 100%;
   height: 50px;
   position: fixed;
-  background-color: black;
+  background-color: $menu-primary-color;
   margin: 0;
   padding: 10px 50px 10px 50px;
   box-sizing: border-box;
@@ -17,57 +19,48 @@ menu#MenuBar {
     font-size: 18px;
   }
 
-  @media only screen and (max-width: 1000px) {
-    button#menu-btn {
-      background: none;
-      border: none;
-      display: block;
-      padding-top: 8px;
-      float: right;
-
-      img#icon {
-        width: 18px;
-        filter: invert(100%);
-      }
-    }
-    nav#menu {
-        display: none;
-    }
+  button#menu-btn {
+    display: none;
   }
 
-  @media only screen and (min-width: 1001px) {
-    button#menu-btn {
-      display: none;
-    }
+  nav#menu {
+      display: block;
 
-    nav#menu {
-        display: block;
-
-        ul {
+      ul {
+          float: right;
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          position: relative;
+          bottom: 20px;
+      
+          li {
             float: right;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            bottom: 20px;
-        
-            li {
-              float: right;
-              display: inline-flex;
-              flex-direction: row;
-        
-              a {
-                color: $secondary-color;
-                display: block;
-                padding: 8px;
-                margin: 0 8px 0 8px;
-                text-decoration: none;
-                font-size: 15px;
-              }
+            display: inline-flex;
+            flex-direction: row;
+      
+            a {
+              color: $primary-font-color;
+              display: block;
+              padding: 8px;
+              margin: 0 8px 0 8px;
+              text-decoration: none;
+              font-size: 15px;
             }
           }
-    }
+        }
   }
 
 
+}
+
+menu#MobileMenuBar {
+    width: 100%;
+    height: 60px;
+    background-color: $menu-primary-color;
+    margin: 0;
+    padding: 10px 50px 10px 50px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
 }

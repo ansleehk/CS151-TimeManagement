@@ -1,25 +1,26 @@
-
-import { LoginPage } from './pages/login.jsx';
-import { HomePage } from './pages/home.jsx';
-import { MenuBar } from './components/menuBar.jsx';
+import { LoginPage } from "./pages/login.jsx";
+import { HomePage } from "./pages/home.jsx";
+import { MenuBar } from "./components/menuBar.jsx";
 import "./styles/app.scss";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-    <div>
-      <MenuBar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </div>
-  </Router>
+      <div>
+        <MenuBar />
+        <div id="content-container">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </div>
+      </div>
+      <div>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

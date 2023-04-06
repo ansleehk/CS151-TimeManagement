@@ -1,16 +1,14 @@
 import "./styles/menuBar.scss";
 import { Link } from "react-router-dom";
 import menuIcon from "./img/menu.png";
+import { useWindowDimensions } from "../hooks/device.js";
 
-export function MenuBar() {
+function DesktopMenuBar() {
   return (
-    <menu id="MenuBar">
+    <menu id="DesktopMenuBar">
       <a id="logo" href="/">
         Time Management Tool
       </a>
-      <button id="menu-btn">
-        <img id="icon" src={menuIcon} />
-      </button>
       <nav id="menu">
         <ul>
           <li>
@@ -21,5 +19,25 @@ export function MenuBar() {
         </ul>
       </nav>
     </menu>
+  );
+}
+
+function MobileMenuBar() {
+  return (
+    <menu id="MobileMenuBar">
+
+    </menu>
+  )
+}
+
+export function MenuBar() {
+  let menu = DesktopMenuBar;
+  ;
+  return (
+    <div>
+      {
+        useWindowDimensions().width > 1000 ? <DesktopMenuBar /> : <MobileMenuBar />
+      }
+    </div>
   );
 }
