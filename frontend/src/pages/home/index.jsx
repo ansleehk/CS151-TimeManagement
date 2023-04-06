@@ -1,5 +1,6 @@
-import "./styles/home.scss"
-import ToDoIcon from './img/check.png'
+import "./home.scss"
+import ToDoIcon from '../img/check.png'
+import { Calendar } from "./calendar.jsx"
 
 function ToDoBox (){
     return (
@@ -37,11 +38,14 @@ function UpcomingEvent (){
 export function HomePage (){
     return (
         <div id="HomePage">
-            <header>
+            <header id="info">
                 <ToDoBox />
                 <Routine />
                 <UpcomingEvent />
             </header>
+            <main>
+                <Calendar />
+            </main>
         </div>
     )
 }
