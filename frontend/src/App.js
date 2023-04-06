@@ -1,7 +1,7 @@
 import { LoginPage } from "./pages/login.jsx";
 import { HomePage } from "./pages/home/index.jsx";
 import { MenuBar } from "./components/menuBar.jsx";
-import { RegisterPage} from "./pages/register.js"
+import { RegisterPage } from "./pages/register.js";
 import "./styles/app.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -18,8 +18,10 @@ function App() {
       </div>
       <div>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="auth">
+            <Route path="login" element={<LoginPage />} />
+            <Route path="register" element={<RegisterPage />} />
+          </Route>
         </Routes>
       </div>
     </Router>

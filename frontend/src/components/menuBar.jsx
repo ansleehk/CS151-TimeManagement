@@ -28,7 +28,6 @@ function DesktopMenuBar() {
             <Link to="/calendar"> Calendar </Link>
             <Link to="/dailyRoutine">Daily Routine</Link>
             <Link to="/dailyRoutine">Daily Routine</Link>
-            <Link to="/login">Login</Link>
           </li>
         </ul>
       </nav>
