@@ -4,9 +4,9 @@ import '../styles/register.css';
 import timePicture from '../components/img/timePicture.png'
 
 
-function Register() {
+export function RegisterPage() {
     return (
-        <><nav><Navigation /></nav><div className='registerPage'>
+        <><div className='registerPage'>
 
         <div className="form-inner">
             <MDBRow className='d-flex justify-content-center align-items-center h-50'>
@@ -75,4 +75,3 @@ function Register() {
     );
   }
   
-  export default Register; 
