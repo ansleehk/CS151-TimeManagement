@@ -55,7 +55,7 @@ export function LoginPage() {
               </MDBCol>
 
               <MDBCol col='6' className='my-5 mx-lg-5' style={{ maxWidth: '580px', }}>
-                <div classname="timePicture">
+                <div className="timePicture">
                   <img src={timePicture} width="200px" height="auto"></img>
                 </div>
               </MDBCol>

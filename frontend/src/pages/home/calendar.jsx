@@ -6,10 +6,15 @@ import { getDaysInMonth } from "../../func/date.js";
 
 function Day(props) {
   return (
-    <div class="day">
+    <div className="day">
       <span>
         {props.day}
       </span>
+      <ol>
+        <li>
+
+        </li>
+      </ol>
     </div>
   );
 }
@@ -17,21 +22,21 @@ function Day(props) {
 
 function CalendarDayContainer(props) {
   let dayItems = [];
-  const DAYS_IN_A_MONTH =  getDaysInMonth(props.date.getFullYear(), props.date.getMonth())
-  for (let i = 0; i < DAYS_IN_A_MONTH; i++){
+  const DAYS_IN_A_MONTH = getDaysInMonth(props.date.getFullYear(), props.date.getMonth())
+  for (let i = 0; i < DAYS_IN_A_MONTH; i++) {
     dayItems.push(<Day key={i} day={i + 1} />);
   }
   return (
     <main id="calendar-day-container">
-        {
-          dayItems
-        }
+      {
+        dayItems
+      }
     </main>
   );
 }
 
 export function Calendar() {
-  
+
   const [viewDate, setViewDate] = useState(new Date());
 
   const setMonth = (month) => {
@@ -45,7 +50,7 @@ export function Calendar() {
   return (
     <div id="calendar">
       <header id="controller">
-        <button class="month-control" id="left" onClick={()=>{setMonth(-1)}}>
+        <button className="month-control" id="left" onClick={() => { setMonth(-1) }}>
           <img src={ArrowIcon} />
         </button>
         <span id="viewDate">
@@ -53,7 +58,7 @@ export function Calendar() {
             ", " +
             viewDate.getFullYear()}
         </span>
-        <button class="month-control" id="right" onClick={()=>{setMonth(1)}}>
+        <button className="month-control" id="right" onClick={() => { setMonth(1) }}>
           <img src={ArrowIcon} />
         </button>
       </header>
