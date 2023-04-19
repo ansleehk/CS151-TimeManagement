@@ -12,5 +12,14 @@
     "October",
     "November",
     "December"
+  ],
+  "dayNames": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
   ]
 }

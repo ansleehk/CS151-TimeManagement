@@ -4,38 +4,53 @@ import { Calendar } from "./calendar.jsx"
 
 function ToDoBox (){
     return (
-        <div class="info-box" id="todo">
-            <img class="icon" src={ToDoIcon} />
-            <span class="title">
+        <div className="info-box" id="todo">
+            <img className="icon" src={ToDoIcon} />
+            <span className="title">
                 To-Do Items
             </span>
+            <ol id="todo-list">
+                <li>
+                    Homework
+                </li>
+            </ol>
         </div>
     )
 }
 
 function Routine (){
     return (
-        <div class="info-box" id="routine">
-            <img class="icon" src={ToDoIcon} />
-            <span class="title">
+        <div className="info-box" id="routine">
+            <img className="icon" src={ToDoIcon} />
+            <span className="title">
                 Routine
             </span>
+            <ol id="todo-list">
+                <li>
+                    Sleep
+                </li>
+            </ol>
         </div>
     )
 }
 
 function UpcomingEvent (){
     return (
-        <div class="info-box" id="upcomingEvent">
-            <img class="icon" src={ToDoIcon} />
-            <span class="title">
+        <div className="info-box" id="upcomingEvent">
+            <img className="icon" src={ToDoIcon} />
+            <span className="title">
                 Upcoming Event
             </span>
+            <ol id="todo-list">
+                <li>
+                    Study CS-151
+                </li>
+            </ol>
         </div>
     )
 }
 
-export function HomePage (){
+export default function HomePage (){
     return (
         <div id="HomePage">
             <header id="info">

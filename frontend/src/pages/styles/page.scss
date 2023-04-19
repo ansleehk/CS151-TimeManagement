@@ -1,0 +1,27 @@
+@import "./../../styles/_global.scss";
+
+div.page-container {
+    height: 500px;
+    background-color:$secondary-color;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 15px black;
+    border: 1px solid $primary-color;
+    text-align: center;
+    color: black;
+    position: absolute;
+    top: 50%;
+}
+
+
+div.right-page-container {
+    left: 50%;
+    transform: translate(calc(-50% + 300px), -50%);
+    padding: 60px 30px;
+    width: 440px;
+}
+
+div.left-page-container {
+    left: 50%;
+    transform: translate(calc(-50% - 300px), -50%);
+    width: 600px;
+}
