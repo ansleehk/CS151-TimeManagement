@@ -1,6 +1,6 @@
 import "./styles/menuBar.scss";
 import { Link } from "react-router-dom";
-import SettingIcon from "./img/settings.png";
+import userIcon from "./img/user.png";
 import { useWindowDimensions } from "../hooks/device.js";
 
 function DesktopMenuBar() {
@@ -11,7 +11,7 @@ function DesktopMenuBar() {
       </a>
       <div id="setting-dropdown">
         <button id="setting-btn">
-          <img src={SettingIcon} />
+          <img src={userIcon} />
         </button>
         <menu id="setting">
           <ul>

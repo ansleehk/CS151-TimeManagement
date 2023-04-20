@@ -7,6 +7,7 @@ import {
 
 import { MenuBar } from "../components/menuBar";
 import "../styles/index.scss"
+import { LoadingPage } from "../pages/loading";
 
 const LazyHomepage = lazy(() => import("../pages/home/index"));
 const LazyCreateRoutine = lazy(() => import("../pages/routines/createRoutine"));
@@ -17,8 +18,8 @@ const LazyError = lazy(() => import("../pages/notFound"));
 const AppLayout = () => {
     return (
         <>
-            <Suspense>
-                <MenuBar />
+            <MenuBar />
+            <Suspense fallback={<LoadingPage />}>
                 <div id="content-container">
                     <Outlet />
                 </div>

@@ -47,6 +47,7 @@ div#CreateRoutinePage {
         form {
             position: relative;
             top: 60px;
+            height: 200px;
             label {
                 font-style: normal;
                 font-weight: normal;
@@ -71,19 +72,23 @@ div#CreateRoutinePage {
                 color: rgb(113, 113, 113);
             }
 
-            input[type="submit"] {
-                width: 100px;
-            }
 
         }
     }
 
     div.right-page-container#time-form-container {
         form {
-            height: 300px;
+            padding: 10px 0;
+            height: 260px;
             ol {
-                margin-bottom: 50px;
+                position: relative;
+                left: 40px;
+                width: 80%;
+
+                margin-bottom: 30px;
                 list-style: none;
+                text-align: center;
+                padding: 0;
                 li {
                     display: inline-block;
                     margin: 3px;
@@ -94,20 +99,24 @@ div#CreateRoutinePage {
                 margin: 5px 0;
                 width: 100%;
                 height: 40px;
+
+                position: relative;
+                padding: 5px 10px;
+                box-sizing: border-box;
                 
                 label{
                     position: absolute;
-                    left: 50%;
-                    transform: translateX(calc(-50% - 60px));
+                    left: 50px;
                     width: 100px;
+                    top: 10px;
                 }
 
                 input[type="time"]{
                     padding: 2px 8px;
                     box-sizing: border-box;
-                    position: relative;
-                    left: 70px;
-                    bottom: 9px;
+                    position: absolute;
+                    bottom: 4px;
+                    right: 70px;
                     margin: 5px;
                     height: 25px;
                     width: 140px;

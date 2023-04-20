@@ -11,8 +11,11 @@ function Day(props) {
         {props.day}
       </span>
       <ol>
-        <li>
-
+        <li className="schedule">
+          Study
+        </li>
+        <li className="event">
+          Exam
         </li>
       </ol>
     </div>
