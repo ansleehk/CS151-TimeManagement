@@ -51,12 +51,70 @@ menu#DesktopMenuBar {
       }
     }
   }
-  div#setting-dropdown {
-    float: right;
+
+  div.dropdown-btn-container {
     position: relative;
+    width: 100%;
     top: 7px;
+    height: 33px;
+
+    span {
+      margin: 0 10px;
+      height: 100%;
+      font-size: 14px;
+    }
+
+    span:hover {
+      color:rgb(190, 190, 190);
+    }
+
+    menu.dropdown {
+      display: none;
+      top: 17px;
+      position: absolute;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background-color: $menu-primary-color;
+
+      ul.menu-selection {
+        width: 100%;
+        height: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+
+        li {
+          display: flex;
+          flex-direction: column;
+          
+          a {
+            width: 100%;
+            height: 35px;
+            padding: 8px 10px 8px 10px;
+            box-sizing: border-box;
+            color: $primary-font-color;
+            display: block;
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 0.1px solid $primary-font-color;
+            margin: 0;
+          }
+
+          a:hover {
+            background-color: $primary-font-color;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  div.dropdown-btn-container#user {
+    float: right;
     width: 30px;
-    height: calc(100% + 2px);
 
     button#setting-btn {
       background: none;
@@ -75,50 +133,17 @@ menu#DesktopMenuBar {
         filter: invert(80%);
       }
     }
-    menu#setting {
-      display: none;
-      position: absolute;
-      top: 17px;
-      right: 0;
-      width: 100px;
-      height: 100px;
-      background-color: $menu-primary-color;
-
-      ul {
-        width: 100%;
-        height: 100%;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        left: 0;
-
-        li {
-          display: flex;
-          flex-direction: column;
-
-          a {
-            width: 100%;
-            height: 35px;
-            padding: 8px 10px 8px 10px;
-            box-sizing: border-box;
-            color: $primary-font-color;
-            display: block;
-            text-decoration: none;
-            font-size: 14px;
-            border-bottom: 0.1px solid $primary-font-color;
-          }
-
-          a:hover {
-            background-color: $primary-font-color;
-            color: $primary-color;
-          }
-        }
-      }
-    }
   }
 
-  div#setting-dropdown:hover menu#setting {
+  div.dropdown-btn-container#routine {
+    top: 0px;
+  }
+
+  div.dropdown-btn-container#event {
+    top: 0px;
+  }
+
+  div.dropdown-btn-container:hover menu.dropdown {
     display: block;
   }
 }

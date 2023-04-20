@@ -17,30 +17,54 @@ header#info{
         box-sizing: border-box;
         box-shadow: 0px 5px 15px black;
         margin: 10px 20px 10px 20px;
+        position: relative;
 
-        ol#todo-list{
-            width: 220px;
-            height: 27px;
-            position: relative;
-            bottom: 23px;
-            left: 65px;
+        button.add {
+            position: absolute;
+            right: 30px;
+            bottom: 41px;
+            margin: 0;
+            padding: 3px;
+            width: 25px;
+            height: 25px;
             border: 1.5px solid white;
-            padding: 5px 3px 3px 30px;
-            box-sizing: border-box;
-            border-radius: 13px;
-            li {
-                font-size: 13px;
-                list-style-type: number;
+            border-radius: 50%;
+            background: none;
+
+            img.plus {
+                width: 100%;
+                filter: invert(1);
             }
         }
 
-        ol#todo-list:hover {
-            background-color: white;
+        button.add:hover {
+            background-color: rgb(255, 255, 255);
             opacity: 0.6;
-
-            li {
-                color: rgb(27, 27, 27);
+            cursor: pointer;
+            img.plus {
+                filter: invert(0.2);
             }
+        }
+
+        div.upcoming{
+            width: 200px;
+            height: 27px;
+            position: absolute;
+            bottom: 40px;
+            left: 85px;
+            border: 1.5px solid white;
+            padding: 5px 20px;
+            box-sizing: border-box;
+            border-radius: 13px;
+            font-size: 13px;
+
+
+        }
+
+        div.upcoming:hover {
+            background-color: rgb(255, 255, 255);
+            opacity: 0.6;
+            color: black;
         }
 
         img.icon {

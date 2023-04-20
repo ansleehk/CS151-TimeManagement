@@ -9,10 +9,10 @@ import { MenuBar } from "../components/menuBar";
 import "../styles/index.scss"
 import { LoadingPage } from "../pages/loading";
 
-const LazyHomepage = lazy(() => import("../pages/home/index"));
+const LazyHomepage = lazy(() => import("../pages/index"));
 const LazyCreateRoutine = lazy(() => import("../pages/routines/createRoutine"));
 const LazyError = lazy(() => import("../pages/notFound"));
-
+const LazyCalendar = lazy(() => import("../pages/calendar"));
 
 
 const AppLayout = () => {
@@ -49,6 +49,10 @@ export const router = createBrowserRouter([
                                 element: <LazyCreateRoutine />
                             }
                         ]
+                    },
+                    {
+                        path: "calendar",
+                        element: <LazyCalendar />
                     },
                     {
                         path: "*",
