@@ -13,7 +13,7 @@ const LazyHomepage = lazy(() => import("../pages/index"));
 const LazyCreateRoutine = lazy(() => import("../pages/routines/createRoutine"));
 const LazyError = lazy(() => import("../pages/notFound"));
 const LazyCalendar = lazy(() => import("../pages/calendar"));
-const LazyRoutine = lazy(()=> import("../pages/routines/viewRoutine"))
+const LazyRoutine = lazy(() => import("../pages/routines/viewRoutine"))
 
 
 const AppLayout = () => {
@@ -44,8 +44,11 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: "routine",
-                        element: <LazyRoutine />,
                         children: [
+                            {
+                                path: "",
+                                element: <LazyRoutine />
+                            },
                             {
                                 path: "create",
                                 element: <LazyCreateRoutine />
