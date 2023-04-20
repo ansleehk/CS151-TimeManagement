@@ -1,8 +1,8 @@
-import "./calendar.scss";
+import "./styles/calendar.scss";
 import { useState } from "react";
-import CalendarData from "../../data/calendar.json";
-import ArrowIcon from "../img/right-arrow.png";
-import { getDaysInMonth } from "../../func/date.js";
+import CalendarData from "../data/calendar.json";
+import ArrowIcon from "./img/right-arrow.png";
+import { getDaysInMonth } from "../func/date.js";
 
 function Day(props) {
   return (

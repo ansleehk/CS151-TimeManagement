@@ -9,14 +9,16 @@ function DesktopMenuBar() {
       <a id="logo" href="/">
         Time Management Tool
       </a>
-      <div id="setting-dropdown">
+      <div id="user" className="dropdown-btn-container">
         <button id="setting-btn">
           <img src={userIcon} />
         </button>
-        <menu id="setting">
-          <ul>
+        <menu className="dropdown">
+          <ul className="menu-selection">
             <li>
               <Link to="/auth/login"> Login </Link>
+            </li>
+            <li>
               <Link to="/auth/register"> Register </Link>
             </li>
           </ul>
@@ -25,10 +27,41 @@ function DesktopMenuBar() {
       <nav>
         <ul>
           <li>
-            <Link to="/calendar"> Calendar </Link>
-            <Link to="/routine/create">Daily Routine</Link>
-            <Link to="/routine">Event</Link>
+          <Link to="/calendar"> Calendar </Link>
           </li>
+
+          <li>
+            <div id="routine" className="dropdown-btn-container">
+              <span>
+                Daily Routine
+              </span>
+              <menu className="dropdown">
+                <ul className="menu-selection">
+                  <li>
+                    <Link to="/routine"> View </Link>
+                  </li>
+                  <li>
+                    <Link to="/routine/create"> Create </Link>
+                  </li>
+                </ul>
+              </menu>
+            </div>
+          </li>
+          <li>
+            <div id="event" className="dropdown-btn-container">
+              <span>
+                Event
+              </span>
+              <menu className="dropdown">
+                <ul className="menu-selection">
+                  <li>
+                    <Link to="/event/new"> Create </Link>
+                  </li>
+                </ul>
+              </menu>
+            </div>
+          </li>
+
         </ul>
       </nav>
     </menu>

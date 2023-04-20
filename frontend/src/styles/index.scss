@@ -5,7 +5,13 @@ body {
   color: $primary-font-color;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
 }
 
 @media only screen and (min-width: 1001px) {
