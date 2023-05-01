@@ -18,6 +18,11 @@ public class Event extends Activity {
         this.endTime = endTime;
     }
 
+    public Event() {
+        super();
+
+    }
+
     public LocalDateTime getStartTime() {
         return startTime;
     }

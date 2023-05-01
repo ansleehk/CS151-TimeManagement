@@ -22,6 +22,8 @@ public class AuthController {
                                         HttpServletRequest request,
                                         HttpServletResponse response) {
         return userService.createUser(
+                userInfo.get("firstName"),
+                userInfo.get("lastName"),
                 userInfo.get("username"),
                 userInfo.get("password"),
                 LocalDate.parse(userInfo.get("birthday")),

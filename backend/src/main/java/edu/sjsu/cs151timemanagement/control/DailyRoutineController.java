@@ -86,4 +86,9 @@ public class DailyRoutineController {
     public ResponseEntity<String> deleteDailyRoutine(@PathVariable String routineId) {
         return dailyRoutineService.deleteDailyRoutine(routineId, userId);
     }
+
+    @GetMapping
+    public ResponseEntity<List<DailyRoutine>> getAllDailyRoutine(){
+        return dailyRoutineService.getAllDailyRoutines(userId);
+    }
 }

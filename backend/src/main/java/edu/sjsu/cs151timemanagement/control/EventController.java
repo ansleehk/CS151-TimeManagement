@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -37,6 +38,11 @@ public class EventController {
                 LocalDateTime.parse((String) eventInfo.get("startTime")),
                 LocalDateTime.parse((String) eventInfo.get("endTime")),
                 this.userId);
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<Event>> getAllEvents(){
+        return eventService.getAllEvents(userId);
     }
 
     @GetMapping("/{eventId}")

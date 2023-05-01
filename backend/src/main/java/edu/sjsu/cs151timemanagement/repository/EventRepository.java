@@ -33,6 +33,12 @@ public class EventRepository {
                 .findFirst();
     }
 
+    public List<Event> findAll(String userId) {
+        User user = findUserOrThrow(userId, userRepository);
+        return user.getEvents();
+
+    }
+
     public Optional<Event> findByStartTime(LocalDateTime dateTime, String userId) {
         User user = findUserOrThrow(userId, userRepository);
         List<Event> events = user.getEvents();

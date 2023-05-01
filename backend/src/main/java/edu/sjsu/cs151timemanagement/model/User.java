@@ -7,7 +7,46 @@ import java.util.List;
 
 public class User {
     private String id;
+    private String firstName;
+    private String lastName;
     private String username;
+
+    public User() {
+
+    }
+    public User(
+                String firstName,
+                String lastName,
+                String username,
+                String password,
+                LocalDate birthDay) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.birthDay = birthDay;
+        this.events = new ArrayList<>();
+        this.dailyRoutines = new ArrayList<>();
+        this.dailySchedules = new ArrayList<>();
+    }
+
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     private String password;
 
     public LocalDate getBirthDay() {
@@ -24,19 +63,6 @@ public class User {
 
     private List<DailySchedule> dailySchedules;
 
-    public User() {
-
-    }
-    public User(String username,
-                String password,
-                LocalDate birthDay) {
-        this.username = username;
-        this.password = password;
-        this.birthDay = birthDay;
-        this.events = new ArrayList<>();
-        this.dailyRoutines = new ArrayList<>();
-        this.dailySchedules = new ArrayList<>();
-    }
 
     public String getId() {
         return id;

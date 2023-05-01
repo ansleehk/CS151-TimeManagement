@@ -39,7 +39,7 @@ public class EventService {
             String userId) {
 
         Event newEvent = new Event(title, description, priority, startTime, endTime);
-
+        newEvent.setId(ServiceUtil.generateUUID());
         eventRepository.save(newEvent, userId);
         return ResponseEntity.ok(newEvent.getId());
     }
@@ -48,6 +48,10 @@ public class EventService {
         Event event = verifyIsEventExist(eventId, userId);
         return ResponseEntity.ok(event);
 
+    }
+
+    public ResponseEntity<List<Event>> getAllEvents(String userId) {
+        return ResponseEntity.ok(eventRepository.findAll(userId));
     }
 
     public ResponseEntity<Event> updateEvent(String eventId,

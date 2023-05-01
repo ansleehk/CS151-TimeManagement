@@ -15,6 +15,10 @@ public class Activity {
         this.priority = priority;
     }
 
+    public Activity(){
+
+    }
+
     public Integer getPriority() {
         return priority;
     }
