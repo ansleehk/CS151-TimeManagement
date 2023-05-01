@@ -22,6 +22,8 @@ public class DailyRoutine extends Activity {
         this.endTime = endTime;
     }
 
+    public DailyRoutine(){}
+
     public List<Day> getOccurDay() {
         return occurDay;
     }

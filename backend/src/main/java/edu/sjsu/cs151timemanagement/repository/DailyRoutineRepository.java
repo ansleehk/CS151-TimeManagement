@@ -55,6 +55,11 @@ public class DailyRoutineRepository {
         throw new RuntimeException("Routine not found");
     }
 
+    public List<DailyRoutine> findAll(String userId) {
+        User user = findUserOrThrow(userId, userRepository);
+        return user.getDailyRoutines();
+    }
+
     public void deleteById(String routineId, String userId) {
         User user = findUserOrThrow(userId, userRepository);
         user.getDailyRoutines().removeIf(routine -> routine.getId().equals(routineId));

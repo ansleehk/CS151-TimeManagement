@@ -39,7 +39,7 @@ public class DailyRoutineService {
             String userId) {
 
         DailyRoutine newRoutine = new DailyRoutine(title, description, priority, occurDay, startTime, endTime);
-
+        newRoutine.setId(ServiceUtil.generateUUID());
         dailyRoutineRepository.save(newRoutine, userId);
         return ResponseEntity.ok(newRoutine.getId());
     }
@@ -74,5 +74,9 @@ public class DailyRoutineService {
         DailyRoutine routine = verifyIsRoutineExist(routineId, userId);
         dailyRoutineRepository.deleteById(routineId, userId);
         return ResponseEntity.ok("Successfully deleted");
+    }
+
+    public ResponseEntity<List<DailyRoutine>> getAllDailyRoutines(String userId){
+        return ResponseEntity.ok(dailyRoutineRepository.findAll(userId));
     }
 }

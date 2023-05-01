@@ -35,16 +35,25 @@ public class UserService {
         Cookie sessionCookie = new Cookie("JSESSIONID", session.getId());
         sessionCookie.setMaxAge(60 * 60 * 24);
         sessionCookie.setPath("/");
+
+        Cookie userIdCookie = new Cookie("USER_ID", user.getId());
+        sessionCookie.setMaxAge(60 * 60 * 24);
+        sessionCookie.setPath("/");
+
         response.addCookie(sessionCookie);
+        response.addCookie(userIdCookie);
     }
 
-    public ResponseEntity<?> createUser(String username,
+    public ResponseEntity<?> createUser(
+                                        String firstName,
+                                        String lastName,
+                                        String username,
                                         String password,
                                         LocalDate birthday,
                                         HttpServletRequest request,
                                         HttpServletResponse response){
 
-        User newUser = new User(username, password, birthday);
+        User newUser = new User(firstName, lastName, username, password, birthday);
         newUser.setId(ServiceUtil.generateUUID());
         userRepository.save(newUser);
 
@@ -72,6 +81,8 @@ public class UserService {
         }
 
         HashMap<String, String> userInfo = new HashMap<>();
+        userInfo.put("firstName", optionalUser.get().getFirstName());
+        userInfo.put("lastName", optionalUser.get().getLastName());
         userInfo.put("username", optionalUser.get().getUsername());
         userInfo.put("birthday", optionalUser.get().getBirthDay().toString());
 
