@@ -32,15 +32,10 @@ public class UserService {
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
 
-        Cookie sessionCookie = new Cookie("JSESSIONID", session.getId());
-        sessionCookie.setMaxAge(60 * 60 * 24);
-        sessionCookie.setPath("/");
-
         Cookie userIdCookie = new Cookie("USER_ID", user.getId());
-        sessionCookie.setMaxAge(60 * 60 * 24);
-        sessionCookie.setPath("/");
+        userIdCookie.setMaxAge(60 * 60 * 24);
+        userIdCookie.setPath("/");
 
-        response.addCookie(sessionCookie);
         response.addCookie(userIdCookie);
     }
 
