@@ -1,5 +1,6 @@
 package edu.sjsu.cs151timemanagement.repository;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import edu.sjsu.cs151timemanagement.model.User;
@@ -17,6 +18,7 @@ public class UserRepository {
     public UserRepository() {
         objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
     public void save(User user) {

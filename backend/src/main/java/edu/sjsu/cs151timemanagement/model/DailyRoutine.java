@@ -1,11 +1,14 @@
 package edu.sjsu.cs151timemanagement.model;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-public class DailyRoutine extends Activity {
+public class DailyRoutine extends Activity{
 
     private List<Day> occurDay;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private LocalTime startTime;
     private LocalTime endTime;
 
@@ -13,13 +16,33 @@ public class DailyRoutine extends Activity {
                         String description,
                         Integer priority,
                         List<Day> occurDay,
+                        LocalDate startDate,
+                        LocalDate endDate,
                         LocalTime startTime,
                         LocalTime endTime) {
 
         super(title, description, priority);
         this.occurDay = occurDay;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.startTime = startTime;
         this.endTime = endTime;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 
     public DailyRoutine(){}

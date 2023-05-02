@@ -1,7 +1,6 @@
 package edu.sjsu.cs151timemanagement.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +9,13 @@ public class User {
     private String firstName;
     private String lastName;
     private String username;
+
+    private String password;
+
+    private LocalDate birthDay;
+    private List<Event> events;
+    private List<DailyRoutine> dailyRoutines;
+    private DaySchedule daySchedules;
 
     public User() {
 
@@ -27,9 +33,16 @@ public class User {
         this.birthDay = birthDay;
         this.events = new ArrayList<>();
         this.dailyRoutines = new ArrayList<>();
-        this.dailySchedules = new ArrayList<>();
+        this.daySchedules = new DaySchedule();
     }
 
+    public DaySchedule getDaySchedules() {
+        return daySchedules;
+    }
+
+    public void setDaySchedules(DaySchedule daySchedules) {
+        this.daySchedules = daySchedules;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -47,7 +60,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    private String password;
+
 
     public LocalDate getBirthDay() {
         return birthDay;
@@ -56,12 +69,6 @@ public class User {
     public void setBirthDay(LocalDate birthDay) {
         this.birthDay = birthDay;
     }
-
-    private LocalDate birthDay;
-    private List<Event> events;
-    private List<DailyRoutine> dailyRoutines;
-
-    private List<DailySchedule> dailySchedules;
 
 
     public String getId() {
@@ -104,13 +111,6 @@ public class User {
         this.dailyRoutines = dailyRoutines;
     }
 
-    public List<DailySchedule> getDailySchedules() {
-        return dailySchedules;
-    }
-
-    public void setDailySchedules(List<DailySchedule> dailySchedules) {
-        this.dailySchedules = dailySchedules;
-    }
 
 
 }
