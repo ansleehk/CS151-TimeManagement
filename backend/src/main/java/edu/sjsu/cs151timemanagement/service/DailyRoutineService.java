@@ -1,6 +1,5 @@
 package edu.sjsu.cs151timemanagement.service;
 
-import edu.sjsu.cs151timemanagement.model.Day;
 import edu.sjsu.cs151timemanagement.model.DailyRoutine;
 import edu.sjsu.cs151timemanagement.repository.DailyRoutineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -36,7 +36,7 @@ public class DailyRoutineService {
             String title,
             String description,
             Integer priority,
-            List<Day> occurDay,
+            List<DayOfWeek> occurDay,
             LocalDate startDate,
             LocalDate endDate,
             LocalTime startTime,
@@ -59,7 +59,7 @@ public class DailyRoutineService {
                                                            String title,
                                                            String description,
                                                            Integer priority,
-                                                           List<Day> occurDay,
+                                                           List<DayOfWeek> occurDay,
                                                            LocalDate startDate,
                                                            LocalDate endDate,
                                                            LocalTime startTime,

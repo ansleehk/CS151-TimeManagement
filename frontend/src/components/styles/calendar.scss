@@ -83,6 +83,27 @@ div#calendar {
                     border-radius: 10px;
                     font-size: 13px;
                     padding: 1px 7px;
+                    position: relative;
+
+                    span.name {
+                        display: block;
+                        width: 100px;
+                        height: 100%;
+                    }
+
+                    span.priority {
+                        display: block;
+                        position: absolute;
+                        font-size: 10px;
+                        width: 13px;
+                        height: 13px;
+                        top: 3px;
+                        right: 7px;
+                        border: 1px solid black;
+                        border-radius: 50%;
+                        padding: 0px 0px 1px 3px;
+                        box-sizing: border-box;
+                    }
                 }
                 li.schedule {
                     background-color: $supplementary-color-3;

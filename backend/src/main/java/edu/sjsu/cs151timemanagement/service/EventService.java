@@ -1,6 +1,5 @@
 package edu.sjsu.cs151timemanagement.service;
 
-import edu.sjsu.cs151timemanagement.model.Day;
 import edu.sjsu.cs151timemanagement.model.Event;
 import edu.sjsu.cs151timemanagement.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 

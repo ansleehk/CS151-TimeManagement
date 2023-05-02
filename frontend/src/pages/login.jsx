@@ -1,47 +1,26 @@
-import React, { useState } from 'react'
-import "./styles/login.css"
-
-import timePicture from './img/timePicture.png';
+import React from 'react';
+import './styles/login.scss';
 
 export default function Login() {
-    return (
-      
-      
-      <container >
-
-      <ul class='loginstack'>
-  
-        <div id="RegisterPage" className='page-container right-page-container form-container'>
-          <h1 class="LoginTitle">Login</h1>
-  
-          <p class="subtitle">
-                  Login To Your Account!
-              </p>
-          <form >
-  
-          <container class="Info" >
-  
-            <div>
-              <input type="email" placeholder='Enter Email' class='emailinput h'/>
-            </div>
-  
-            <div>
-              <input type="password" placeholder='Enter Password' class='passwordinput h' />
-            </div>
-
-  
-            <button class="loginbutton" type='submit'>Login</button>
-  
-          </container>
-  
-  
-          </form>
-  
-  
+  return (
+    <div className="container page-container right-page-container form-container">
+      <h1 className="login-title">Login</h1>
+      <p className="subtitle">Login To Your Account!</p>
+      <form>
+        <div className="info">
+          <div>
+            <input type="email" placeholder="Enter Email" className="email-input h" />
           </div>
-          
-  
-        </ul>
-        </container>
-      );
+          <div>
+            <input type="password" placeholder="Enter Password" className="password-input h" />
+          </div>
+          <button className="login-button" type="submit">
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }
+
+
