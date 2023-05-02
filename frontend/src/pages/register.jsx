@@ -1,77 +1,63 @@
 import React, { useState } from 'react'
-import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon } from 'mdbreact';
-import '../styles/register.css';
-import timePicture from '../components/img/timePicture.png'
+import './styles/register.css';
 
-
-export function RegisterPage() {
+export default function RegisterPage() {
     return (
-        <><div className='registerPage'>
+    <container >
 
-        <div className="form-inner">
-            <MDBRow className='d-flex justify-content-center align-items-center h-50'>
-              <MDBCol col='6'>
+    
+    <ul class='registerstack'>
 
-                <MDBCard className='registerCard my-5 mx-lg-5' style={{ borderRadius: '1rem', maxWidth: '500px' }}>
-                <MDBCardBody className='p-5 d-flex flex-column align-items-center w-100'>
+      <div id="RegisterPage" className='page-container right-page-container form-container'>
+        <h1 class="RegisterTitle">Register</h1>
 
-                    <h2 className="fw-bold mb-2 text-uppercase">Create an Account</h2>
-                    <center><p className="mb-10">Time Management is the key to success</p></center>
-
-                    <div className='d-flex flex-row justify-content-center'>
-                      <form>
-                        <div classname="form-group">
-                          <input class="col-xs-3" type="text" name="firstName" id="firstName" placeholder="First Name" />
-                          <p className="small mb-3"></p>
-                        </div>
-                        <div classname="form-group">
-                          <input class="col-xs-3" type="text" name="lastName" id="lastName" placeholder="Last Name" />
-                          <p className="small mb-3"></p>
-                        </div>
-                        <div classname="form-group">
-                          <input type="Email" name="email" id="email" placeholder="Email" />
-                          <p className="small mb-3"></p>
-                        </div>
-                        <div classname="form-group">
-                          <input type="password" name="password" id="password" placeholder="Password" />
-                          <p className="small mb-3"></p>
-                        </div>
-                        <div classname="form-group">
-                          <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
-                          <p className="small mb-5"></p>
-                        </div>
-                      </form>
-                    </div>
-
-                    <button className="submitB" type='submit'>Create Account</button>
-                    <div className='d-flex flex-row mt-3'>
-                      <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
-                        <MDBIcon fab icon='facebook-f' size="lg" />
-                      </MDBBtn>
-
-                      <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
-                        <MDBIcon fab icon='twitter' size="lg" />
-                      </MDBBtn>
-
-                      <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
-                        <MDBIcon fab icon='google' size="lg" />
-                      </MDBBtn>
-                    </div>
-                  </MDBCardBody>
-                </MDBCard>
-              </MDBCol>
-
-              <MDBCol col='6' className='my-5 mx-lg-5' style={{ maxWidth: '580px', }}>
-                <div classname="timePicture">
-                  <img src={timePicture} width="200px" height="auto"></img>
-                </div>
-              </MDBCol>
+        <p id="subtitle">
+                Register an Account To Have Us Manage Your Time!
+            </p>
+        <form >
 
 
-            </MDBRow>
+        <container class="NameContainer" >
+
+
+          <div class="firstname" >
+            <input type="text" placeholder ='Enter First Name' class='name h' />
+          </div>
+
+          <div class="lastname" >
+            <input type="text" placeholder ='Enter Last Name' class='name h'/>
+          </div>
+          
+        </container>
+
+
+        <container class="Info" >
+
+        
+          <div>
+            <input type="email" placeholder='Enter Email' class='emailinput h'/>
+          </div>
+
+          <div>
+            <input type="password" placeholder='Enter Password' class='passwordinput h' />
+          </div>
+
+          <div>
+            <input type="password" placeholder='Confirm Password' class='confirmpasswordinput h' />
+          </div>
+
+          <button class="registerbutton" type='submit'>Register</button>
+
+        </container>
+
+
+        </form>
+
+
         </div>
-      </div>
-    </>
+
+      </ul>
+      </container>
     );
   }
   
