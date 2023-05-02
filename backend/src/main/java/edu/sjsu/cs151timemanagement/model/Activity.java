@@ -19,6 +19,13 @@ public class Activity {
 
     }
 
+    public Activity(String id, String title, String description, Integer priority) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+    }
+
     public Integer getPriority() {
         return priority;
     }

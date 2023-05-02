@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/{userId}/daily-routine")
@@ -32,9 +32,7 @@ public class DailyRoutineController {
         this.userId = userId;
     }
 
-    @PostMapping
-    public ResponseEntity<String> createDailyRoutine(@RequestBody Map<String, Object> routineInfo) {
-        List<String> occurDayStrings = (List<String>) routineInfo.get("occurDay");
+    private List<Day> getOccurDaysFromReqList(List<String> occurDayStrings){
         List<Day> occurDays = new ArrayList<>();
 
         for (String dayString : occurDayStrings) {
@@ -42,11 +40,20 @@ public class DailyRoutineController {
             occurDays.add(day);
         }
 
+        return occurDays;
+    }
+
+    @PostMapping
+    public ResponseEntity<String> createDailyRoutine(@RequestBody Map<String, Object> routineInfo) {
+        var occurDays = getOccurDaysFromReqList((List<String>) routineInfo.get("occurDay"));
+
         return dailyRoutineService.createDailyRoutine(
                 (String) routineInfo.get("title"),
                 (String) routineInfo.get("description"),
                 (Integer) routineInfo.get("priority"),
                 occurDays,
+                LocalDate.parse((String) routineInfo.get("startDate")),
+                LocalDate.parse((String) routineInfo.get("endDate")),
                 LocalTime.parse((String) routineInfo.get("startTime")),
                 LocalTime.parse((String) routineInfo.get("endTime")),
                 this.userId);
@@ -61,14 +68,8 @@ public class DailyRoutineController {
 
     @PutMapping("/{routineId}")
     public ResponseEntity<DailyRoutine> updateDailyRoutine(@PathVariable String routineId, @RequestBody Map<String, Object> routineInfo) {
-        List<String> occurDayStrings = (List<String>) routineInfo.get("occurDay");
-        List<Day> occurDays = new ArrayList<>();
 
-        for (String dayString : occurDayStrings) {
-            Day day = Day.valueOf(dayString);
-            occurDays.add(day);
-        }
-
+        var occurDays = getOccurDaysFromReqList((List<String>) routineInfo.get("occurDay"));
 
         return dailyRoutineService.updateDailyRoutine(
                 routineId,
@@ -76,6 +77,8 @@ public class DailyRoutineController {
                 (String) routineInfo.get("description"),
                 (Integer) routineInfo.get("priority"),
                 occurDays,
+                LocalDate.parse((String) routineInfo.get("startDate")),
+                LocalDate.parse((String) routineInfo.get("endDate")),
                 LocalTime.parse((String) routineInfo.get("startTime")),
                 LocalTime.parse((String) routineInfo.get("endTime")),
                 userId

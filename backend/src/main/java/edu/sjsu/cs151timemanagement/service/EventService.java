@@ -19,6 +19,8 @@ public class EventService {
 
     @Autowired
     private EventRepository eventRepository;
+    @Autowired
+    private DayScheduleService dayScheduleService;
 
     private Event verifyIsEventExist(String eventId, String userId) {
         Optional<Event> optionalEvent = eventRepository.findById(eventId, userId);
@@ -41,6 +43,7 @@ public class EventService {
         Event newEvent = new Event(title, description, priority, startTime, endTime);
         newEvent.setId(ServiceUtil.generateUUID());
         eventRepository.save(newEvent, userId);
+        dayScheduleService.addActivity(newEvent, userId);
         return ResponseEntity.ok(newEvent.getId());
     }
 
@@ -70,6 +73,7 @@ public class EventService {
         event.setEndTime(endTime);
 
         eventRepository.update(eventId, event, userId);
+        dayScheduleService.updateActivity(event, userId);
         return ResponseEntity.ok(event);
 
     }
@@ -77,6 +81,7 @@ public class EventService {
     public ResponseEntity<String> deleteEvent(String eventId, String userId){
         Event event = verifyIsEventExist(eventId, userId);
         eventRepository.deleteById(eventId, userId);
+        dayScheduleService.removeActivity(event, userId);
         return ResponseEntity.ok("Successfully deleted");
     }
 
