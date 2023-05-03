@@ -1,0 +1,65 @@
+div#registration {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5%;
+    width: 450px;
+    height: 500px;
+    background-color: white;
+
+    div#header {
+        text-align: center;
+        top: 10px;
+        position: absolute;
+        height: 120px;
+        width: 100%;
+        color: black;
+
+    }
+    form {
+        position: absolute;
+        bottom: 0;
+        height: 350px;
+        width: 100%;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        text-align: center;
+
+        input{
+            padding: 0 20px;
+            box-sizing: border-box;
+            margin: 10px 0;
+            border-radius: 20px;
+            height: 35px;
+            width: 80%;
+        }
+
+        input[type=date] {
+
+        }
+
+        div#name-container {
+
+            input[type=text]{
+                margin: 0 10px;
+                width: 40%;
+            }
+            display: flex;
+            justify-content: center;
+            height: 40px;
+        }
+        button[type=submit] {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 30px;
+            width: 140px;
+            border-radius: 20px;
+        }
+
+
+    }
+}
+

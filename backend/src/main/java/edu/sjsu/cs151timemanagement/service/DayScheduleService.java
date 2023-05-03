@@ -1,18 +1,15 @@
 package edu.sjsu.cs151timemanagement.service;
 
 import edu.sjsu.cs151timemanagement.model.*;
-import edu.sjsu.cs151timemanagement.repository.DailyRoutineRepository;
-import edu.sjsu.cs151timemanagement.repository.DayScheduleRepository;
-import edu.sjsu.cs151timemanagement.repository.EventRepository;
+import edu.sjsu.cs151timemanagement.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.YearMonth;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class DayScheduleService {
@@ -37,9 +34,8 @@ public class DayScheduleService {
     private void addEvent(Event event, String userId) {
         LocalDate date = event.getStartTime().toLocalDate();
         final var activityId = ServiceUtil.generateUUID();
-        ScheduledDayActivity scheduledDayActivity = new ScheduledDayActivity(activityId, ActivityType.Event, event.getId(), event.getStartTime().toLocalTime(), event.getEndTime().toLocalTime());
+        ScheduledDayActivity scheduledDayActivity = new ScheduledDayActivity(activityId, ActivityType.Event, event.getId(),event.getStartTime().toLocalTime(), event.getEndTime().toLocalTime());
         dayScheduleRepository.save(scheduledDayActivity, userId, date);
-        scheduleActivities(userId, date);
     }
 
     private void addDailyRoutine(DailyRoutine dailyRoutine, String userId) {
@@ -50,7 +46,6 @@ public class DayScheduleService {
                 final var activityId = ServiceUtil.generateUUID();
                 ScheduledDayActivity scheduledDayActivity = new ScheduledDayActivity(activityId, ActivityType.DailyRoutine, dailyRoutine.getId(), dailyRoutine.getStartTime(), dailyRoutine.getEndTime());
                 dayScheduleRepository.save(scheduledDayActivity, userId, date);
-                scheduleActivities(userId, date);
             }
         }
     }
@@ -68,22 +63,13 @@ public class DayScheduleService {
     private void updateEvent(Event event, String userId) {
         LocalDate date = event.getStartTime().toLocalDate();
         String activityId = event.getId();
-        ScheduledDayActivity updatedActivity = new ScheduledDayActivity(activityId, ActivityType.Event, event.getId(), event.getStartTime().toLocalTime(), event.getEndTime().toLocalTime());
+        ScheduledDayActivity updatedActivity = new ScheduledDayActivity(activityId, ActivityType.Event, event.getId(),event.getStartTime().toLocalTime(), event.getEndTime().toLocalTime());
         dayScheduleRepository.update(activityId, updatedActivity, userId, date);
-        scheduleActivities(userId, date);
     }
 
     private void updateDailyRoutine(DailyRoutine dailyRoutine, String userId) {
-        long numOfDays = ChronoUnit.DAYS.between(dailyRoutine.getStartDate(), dailyRoutine.getEndDate());
-        for (int i = 0; i <= numOfDays; i++) {
-            LocalDate date = dailyRoutine.getStartDate().plusDays(i);
-            if (dailyRoutine.getOccurDay().contains(date.getDayOfWeek())) {
-                String activityId = dailyRoutine.getId();
-                ScheduledDayActivity updatedActivity = new ScheduledDayActivity(activityId, ActivityType.DailyRoutine, dailyRoutine.getId(), dailyRoutine.getStartTime(), dailyRoutine.getEndTime());
-                dayScheduleRepository.update(activityId, updatedActivity, userId, date);
-                scheduleActivities(userId, date);
-            }
-        }
+        removeDailyRoutine(dailyRoutine, userId); // Remove previously scheduled instances of the daily routine
+        addDailyRoutine(dailyRoutine, userId); // Re-add the daily routine with updated properties
     }
 
     public void removeActivity(Activity activity, String userId) {
@@ -99,7 +85,6 @@ public class DayScheduleService {
     private void removeEvent(Event event, String userId) {
         LocalDate date = event.getStartTime().toLocalDate();
         dayScheduleRepository.deleteById(event.getId(), userId, date);
-        scheduleActivities(userId, date);
     }
 
     private void removeDailyRoutine(DailyRoutine dailyRoutine, String userId) {
@@ -108,13 +93,11 @@ public class DayScheduleService {
             LocalDate date = dailyRoutine.getStartDate().plusDays(i);
             if (dailyRoutine.getOccurDay().contains(date.getDayOfWeek())) {
                 dayScheduleRepository.deleteById(dailyRoutine.getId(), userId, date);
-                scheduleActivities(userId, date);
             }
         }
     }
 
     public ResponseEntity<List<ScheduledDayActivity>> getDaySchedule(String userId, LocalDate date) {
-        scheduleActivities(userId, date);
         ArrayList<ScheduledDayActivity> activities = dayScheduleRepository.findAll(userId, date);
         if (activities == null || activities.isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -131,9 +114,6 @@ public class DayScheduleService {
             return ResponseEntity.ok(activities);
         }
     }
-
-
-
 
     private long getOriginalDuration(Activity activity) {
         if (activity instanceof Event) {
@@ -159,5 +139,15 @@ public class DayScheduleService {
             throw new IllegalArgumentException("Unsupported activity type");
         }
     }
+
+    public void scheduleExistingDailyRoutines(String userId, LocalDate startDate, LocalDate endDate) {
+        List<DailyRoutine> dailyRoutines = dailyRoutineRepository.findAll(userId);
+        for (DailyRoutine dailyRoutine : dailyRoutines) {
+            if (dailyRoutine.getStartDate().isBefore(endDate) && dailyRoutine.getEndDate().isAfter(startDate)) {
+                addDailyRoutine(dailyRoutine, userId);
+            }
+        }
+    }
+
 
 }

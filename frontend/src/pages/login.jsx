@@ -1,47 +1,63 @@
-import React, { useState } from 'react'
-import "./styles/login.css"
-
-import timePicture from './img/timePicture.png';
+import { useEffect } from 'react';
+import './styles/login.scss';
+import axios, { AxiosError } from "axios";
+import { useNavigate } from 'react-router-dom';
+import { useIsLoggedIn } from '../hooks/auth';
 
 export default function Login() {
-    return (
-      
-      
-      <container >
 
-      <ul class='loginstack'>
-  
-        <div id="RegisterPage" className='page-container right-page-container form-container'>
-          <h1 class="LoginTitle">Login</h1>
-  
-          <p class="subtitle">
-                  Login To Your Account!
-              </p>
-          <form >
-  
-          <container class="Info" >
-  
-            <div>
-              <input type="email" placeholder='Enter Email' class='emailinput h'/>
-            </div>
-  
-            <div>
-              <input type="password" placeholder='Enter Password' class='passwordinput h' />
-            </div>
+  const navigate = useNavigate();
+  const isLoggedIn = useIsLoggedIn();
 
-  
-            <button class="loginbutton" type='submit'>Login</button>
-  
-          </container>
-  
-  
-          </form>
-  
-  
-          </div>
-          
-  
-        </ul>
-        </container>
-      );
+
+  const handleSubmit = async(event) => {
+    event.preventDefault();
+    const USERNAME = event.target.username.value;
+    const PASSWORD = event.target.password.value;
+
+    try{
+      const HTTP_RES = await axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/login`, {
+        "username": USERNAME,
+        "password": PASSWORD
+      }, {withCredentials: true})
+    
+      navigate("/");
+
+      
+    } catch (error) {
+      if (error instanceof AxiosError){
+        if (error.response.status === 401) {
+          alert("Wrong Login Credential")
+        } else {
+          throw error;
+        }
+        
+      }
+    }
+
+  }
+
+  useEffect(()=>{
+      if(isLoggedIn) navigate("/");
+  }, [useIsLoggedIn])
+
+  return (
+    <div id="login-container">
+      <div id="info">
+        <h1 id="title">Login</h1>
+        <p id="subtitle">Login To Your Account!</p>
+
+      </div>
+
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="username" placeholder="Enter Username" />
+        <input type="password" name="password" placeholder="Enter Password" />
+        <button id="login-button" type="submit">
+          Login
+        </button>
+      </form>
+    </div>
+  );
 }
+
+

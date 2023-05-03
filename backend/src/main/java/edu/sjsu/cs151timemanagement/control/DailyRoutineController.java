@@ -1,6 +1,5 @@
 package edu.sjsu.cs151timemanagement.control;
 
-import edu.sjsu.cs151timemanagement.model.Day;
 import edu.sjsu.cs151timemanagement.model.DailyRoutine;
 import edu.sjsu.cs151timemanagement.service.DailyRoutineService;
 import edu.sjsu.cs151timemanagement.service.UserService;
@@ -8,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -32,11 +32,11 @@ public class DailyRoutineController {
         this.userId = userId;
     }
 
-    private List<Day> getOccurDaysFromReqList(List<String> occurDayStrings){
-        List<Day> occurDays = new ArrayList<>();
+    private List<DayOfWeek> getOccurDaysFromReqList(List<String> occurDayStrings){
+        List<DayOfWeek> occurDays = new ArrayList<>();
 
         for (String dayString : occurDayStrings) {
-            Day day = Day.valueOf(dayString);
+            DayOfWeek day = DayOfWeek.valueOf(dayString);
             occurDays.add(day);
         }
 

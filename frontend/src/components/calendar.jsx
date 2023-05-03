@@ -12,10 +12,20 @@ function Day(props) {
       </span>
       <ol>
         <li className="schedule">
-          Study
+          <span className="name">
+            Study
+          </span>
+          <span className="priority">
+            1
+          </span>
         </li>
         <li className="event">
+          <span className="name">
           Exam
+          </span>
+          <span className="priority">
+            1
+          </span>
         </li>
       </ol>
     </div>

@@ -35,6 +35,7 @@ public class UserService {
         Cookie userIdCookie = new Cookie("USER_ID", user.getId());
         userIdCookie.setMaxAge(60 * 60 * 24);
         userIdCookie.setPath("/");
+        userIdCookie.setDomain("localhost");
 
         response.addCookie(userIdCookie);
     }
