@@ -103,9 +103,14 @@ menu#DesktopMenuBar {
             margin: 0;
           }
 
+          a#hi:hover{
+            cursor: default;
+          }
+
           a:hover {
             background-color: $primary-font-color;
             color: $primary-color;
+            cursor: pointer;
           }
         }
       }
