@@ -6,10 +6,10 @@ import java.time.LocalTime;
 public class ScheduledDayActivity {
     String id;
 
-    LocalTime startTime;
-    LocalTime endTime;
-    ActivityType activityType;
-    String originActivityId;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private ActivityType activityType;
+    private String originActivityId;
 
     public ScheduledDayActivity(
             String id,
