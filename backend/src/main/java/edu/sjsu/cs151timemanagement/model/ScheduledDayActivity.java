@@ -26,6 +26,8 @@ public class ScheduledDayActivity {
     }
 
     public ScheduledDayActivity(){}
+    
+    // Getters and Setters
 
     public ActivityType getActivityType() {
         return activityType;
