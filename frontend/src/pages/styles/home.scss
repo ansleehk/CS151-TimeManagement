@@ -84,6 +84,10 @@ header#info{
 
     div.info-box#todo{
         background-color: $supplementary-color-3;
+
+        div.upcoming{
+            width: 230px;
+        }
     }
     div.info-box#routine{
         background-color: $supplementary-color-2;

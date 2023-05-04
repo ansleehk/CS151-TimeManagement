@@ -155,7 +155,7 @@ div#CreateRoutinePage {
                     height: 25px;
                     width: 140px;
                 }
-                
+
 
             }
 
@@ -163,6 +163,30 @@ div#CreateRoutinePage {
                 position: absolute;
                 bottom: 45px;
             }
+        }
+
+        form#event {
+            position: relative;
+            height: 200px;
+            top: 60px;
+
+            label{
+                position: absolute;
+                left: 40px;
+            }
+
+
+            input[type="datetime-local"] {
+                padding: 2px 8px;
+                box-sizing: border-box;
+                position: absolute;
+                bottom: 4px;
+                right: 30px;
+                margin: 5px;
+                height: 25px;
+                width: 200px;
+            }
+            
         }
     }
 

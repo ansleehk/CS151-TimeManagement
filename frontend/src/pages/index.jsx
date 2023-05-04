@@ -2,6 +2,9 @@ import "./styles/home.scss"
 import ToDoIcon from './img/check.png'
 import { Calendar } from "../components/calendar.jsx"
 import addImg from './img/add.png'
+import starImg from './img/star.png'
+import routineImg from './img/routine.png'
+import calendarImg from './img/calendar.png'
 import { useNavigate } from "react-router-dom";
 
 function ToDoBox() {
@@ -9,21 +12,15 @@ function ToDoBox() {
 
     return (
         <div className="info-box" id="todo">
-            <img className="icon" src={ToDoIcon} />
+            <img className="icon" src={starImg} />
             <span className="title">
-                To-Do Items
+                Keep it up!
             </span>
             <div className="upcoming">
-                <span className="upcoming">
-                    Upcoming:
-                </span>
-                <span className="activity">
-
+                <span className="slogan">
+                    Good Things Take Time
                 </span>
             </div>
-            <button className="add">
-                <img className="plus" src={addImg} />
-            </button>
         </div>
     )
 }
@@ -33,13 +30,13 @@ function Routine() {
 
     return (
         <div className="info-box" id="routine">
-            <img className="icon" src={ToDoIcon} />
+            <img className="icon" src={routineImg} />
             <span className="title">
-                Routine
+            Upcoming Routine
             </span>
             <div className="upcoming">
                 <span className="upcoming">
-                    Upcoming:
+                    Study CS-151
                 </span>
                 <span className="activity">
 
@@ -57,19 +54,19 @@ function UpcomingEvent() {
 
     return (
         <div className="info-box" id="upcomingEvent">
-            <img className="icon" src={ToDoIcon} />
+            <img className="icon" src={calendarImg} />
             <span className="title">
                 Upcoming Event
             </span>
             <div className="upcoming">
                 <span className="upcoming">
-                    Upcoming:
+                    Watch Film
                 </span>
                 <span className="activity">
 
                 </span>
             </div>
-            <button className="add">
+            <button className="add" onClick={()=>{navigate("/event/create")}}>
                 <img className="plus" src={addImg} />
             </button>
         </div>

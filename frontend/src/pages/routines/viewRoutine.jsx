@@ -4,6 +4,7 @@ import "../styles/page.scss"
 import axios from 'axios'
 import { getUserIdFromCookie } from '../../func/auth'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function ViewRoutinePage() {
 
@@ -24,8 +25,11 @@ export default function ViewRoutinePage() {
                     </li>
                 )
             })
+
+            console.log(routine)
     
             tempRoutineElementList.push(
+                <Link to={`/routine/update/${routine["id"]}`}>
                 <li className='routine' key={index}>
                     <span id="priority">
                         {routine["priority"]}
@@ -54,6 +58,7 @@ export default function ViewRoutinePage() {
                         </ul>
                     </div>
                 </li>
+                </Link>
             )
         })
     
