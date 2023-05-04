@@ -25,6 +25,8 @@ public class Activity {
         this.description = description;
         this.priority = priority;
     }
+    
+    // Getters and Setters
 
     public Integer getPriority() {
         return priority;
