@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public class Event extends Activity {
 
-    LocalDateTime startTime;
-    LocalDateTime endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 
     public Event(String title,
                  String description,
