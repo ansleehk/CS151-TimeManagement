@@ -1,12 +1,11 @@
-import "./styles/createRoutine.scss"
-import "../styles/page.scss"
-import planScheduleImg from './img/plan_schedule.png'
+import "./routines/styles/createRoutine.scss"
+import "./styles/page.scss"
+import studentStressedOut from './img/student_stressed_out.png'
 import { useEffect, useState } from "react";
-import calendarData from '../../data/calendar.json'
-import { TimeManagementError } from "../../func/errorHandler";
-import { getCheckedBoxValues } from "../../func/form";
+import { TimeManagementError } from "../func/errorHandler";
+import { getCheckedBoxValues } from "../func/form";
 import axios from "axios";
-import { getUserIdFromCookie } from "../../func/auth";
+import { getUserIdFromCookie } from "../func/auth";
 import { useParams } from "react-router-dom";
 
 
@@ -48,14 +47,14 @@ function NameForm(props) {
     return (
         <div className="page-container right-page-container form-container" id="name-form-container">
             <h1 id="new-routine">
-                Update the routine
+                Update the event
             </h1>
             <p id="slogan">
                 Streamline Your Day, Unlock Success, Savor Life
             </p>
             <form onSubmit={nameFormSubmitHandler()}>
-                <input type="text" id="name" name="name" placeholder="Name of the routine" defaultValue={props.formData["title"]}/><br />
-                <input type="text" id="description" name="description" placeholder="Description of the routine" defaultValue={props.formData["description"]}/>
+                <input type="text" id="name" name="name" placeholder="Name of the event" defaultValue={props.formData["title"]}/><br />
+                <input type="text" id="description" name="description" placeholder="Description of the event" defaultValue={props.formData["description"]}/>
                 <div id="priority">
                     <label htmlFor="priority">Priority: </label>
                     <select id="priority" name="priority" defaultValue={props.formData["priority"]}>
@@ -76,48 +75,26 @@ function NameForm(props) {
 }
 
 function TimeForm(props) {
-    const dayNames = calendarData.dayNames;
-    const checkBoxElements = [];
-    const generateDaysCheckboxes = () => {
-
-        for (let i = 0; i < 7; i++) {
-
-            checkBoxElements.push(
-                <li key={i}>
-                    <label htmlFor={dayNames[i].toLowerCase()}>{dayNames[i]}</label>
-                    <input type="checkbox" id={dayNames[i].toLowerCase()} className="occurDays" name="occurDays" value={dayNames[i].toUpperCase()} />
-                </li>
-            )
-        }
-
-    }
-
-    generateDaysCheckboxes()
 
     const handleFormSubmit = async(event) =>{
         event.preventDefault();
 
         try{
-            const OCCUR_DAYS = getCheckedBoxValues("occurDays").map(value=> value.toUpperCase());
             const START_TIME = event.target["start-time"].value;
             const END_TIME = event.target["end-time"].value;
-            const START_DATE = event.target["start-date"].value;
-            const END_DATE = event.target["end-date"].value;
     
             const ROUTINE_INFO = {
-                "occurDay": OCCUR_DAYS,
-                "startDate": START_DATE,
-                "endDate": END_DATE,
                 "startTime": START_TIME,
                 "endTime": END_TIME,
                 ...props.formData
             }
 
+            console.log(ROUTINE_INFO)
+
     
-            const HTTP_RES = await axios.put(`${process.env.REACT_APP_SERVER_URL}/${getUserIdFromCookie()}/daily-routine/${props.id}`, ROUTINE_INFO, {withCredentials: true});
+            const HTTP_RES = await axios.put(`${process.env.REACT_APP_SERVER_URL}/${getUserIdFromCookie()}/event/${props.id}`, ROUTINE_INFO, {withCredentials: true});
 
             document.location.replace("/");
-    
         } catch (err) {
 
         }
@@ -128,32 +105,20 @@ function TimeForm(props) {
     return (
         <div className="page-container right-page-container form-container" id="time-form-container">
             <h1 id="new-routine">
-                Update the routine
+                Update the event
             </h1>
             <p id="slogan">
                 Streamline Your Day, Unlock Success, Savor Life
             </p>
-            <form onSubmit={handleFormSubmit}>
-                <ol id="days">
-                    {
-                        checkBoxElements
-                    }
-                </ol>
+            <form id="event" onSubmit={handleFormSubmit}>
+
                 <div className="date-time-container">
                     <label htmlFor="start-time">Start Time: </label>
-                    <input type="time" id="start-time" name="start-time" defaultValue={props.formData["startTime"]}/>
+                    <input type="datetime-local" id="start-time" name="start-time" />
                 </div>
                 <div className="date-time-container">
                     <label htmlFor="end-time">End Time: </label>
-                    <input type="time" id="end-time" name="end-time" defaultValue={props.formData["endTime"]}/>
-                </div>
-                <div className="date-time-container">
-                    <label htmlFor="start-date">Start Date: </label>
-                    <input type="date" id="start-date" name="start-date" defaultValue={props.formData["startDate"]}/>
-                </div>
-                <div className="date-time-container">
-                    <label htmlFor="end-date">End Date: </label>
-                    <input type="date" id="end-date" name="end-date"  defaultValue={props.formData["endDate"]}/>
+                    <input type="datetime-local" id="end-time" name="end-time" />
                 </div>
                 <input type="submit" value="Submit"></input>
             </form>
@@ -164,7 +129,7 @@ function TimeForm(props) {
     )
 }
 
-export default function UpdateRoutinePage() {
+export default function CreateEventPage() {
     const [page, setPage] = useState(1);
     const { id } = useParams();
     const [formData, setFormData] = useState({
@@ -174,8 +139,7 @@ export default function UpdateRoutinePage() {
     });
 
     const fetchRoutineInfo = async() =>{
-        const HTTP_RES = (await axios.get(`${process.env.REACT_APP_SERVER_URL}/${getUserIdFromCookie()}/daily-routine/${id}`)).data;
-        console.log(HTTP_RES)
+        const HTTP_RES = (await axios.get(`${process.env.REACT_APP_SERVER_URL}/${getUserIdFromCookie()}/event/${id}`)).data;
         setFormData(HTTP_RES);
     }
 
@@ -183,13 +147,14 @@ export default function UpdateRoutinePage() {
         fetchRoutineInfo()
     }, [])
 
+
     return (
         <div id="CreateRoutinePage">
             <div className="page-container left-page-container" id="image-container">
-                <img src={planScheduleImg} />
+                <img src={studentStressedOut} />
             </div>
             {
-                page === 1 ? <NameForm setPage={setPage} formData={formData} setFormData={setFormData} /> : <TimeForm formData={formData} id={id}/>
+                page === 1 ? <NameForm setPage={setPage} formData={formData} setFormData={setFormData} /> : <TimeForm formData={formData} id={id} />
             }
 
         </div>

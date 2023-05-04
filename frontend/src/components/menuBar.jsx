@@ -1,5 +1,5 @@
 import "./styles/menuBar.scss";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import userIcon from "./img/user.png";
 import { useWindowDimensions } from "../hooks/device.js";
 import { useEffect, useState } from "react";
@@ -13,6 +13,7 @@ function UserSetting() {
 
   const [userFirstName, setUserFirstName] = useState();
   const isUserSignedIn = useIsLoggedIn();
+  const navigate = useNavigate();
 
   const fetchAndSetFirstName = async () => {
     const USER_INFO = await axios.get(`${process.env.REACT_APP_SERVER_URL}/auth/${getUserIdFromCookie()}/info`);
@@ -38,7 +39,7 @@ function UserSetting() {
           <li>
 
             {
-              isUserSignedIn ? <a id="hi">Hello {userFirstName}</a> :             <Link to="/auth/login"> Login </Link>
+              isUserSignedIn ? <a id="hi" onClick={()=>{navigate("/auth/user-info")}}>Hello {userFirstName}</a> :             <Link to="/auth/login"> Login </Link>
             }
 
           </li>
@@ -91,7 +92,7 @@ function DesktopMenuBar() {
               <menu className="dropdown">
                 <ul className="menu-selection">
                   <li>
-                    <Link to="/event/new"> Create </Link>
+                    <Link to="/event/create"> Create </Link>
                   </li>
                 </ul>
               </menu>

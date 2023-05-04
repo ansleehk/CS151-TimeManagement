@@ -3,8 +3,7 @@
 div#calendar {
     width: 100%;
     height: calc(100% - 120px);
-    background-color: white;
-    opacity: 0.8;
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 30px 40px 30px 40px;
     box-sizing: border-box;
     box-shadow: 0 5px 15px black;
@@ -117,6 +116,41 @@ div#calendar {
                         height: 200px;
                         background-color: white;
                         display: none;
+                        color: black;
+                        box-sizing: border-box;
+                        padding: 15px;
+
+                        div.priority{
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            border: 1px solid black;
+                            box-sizing: border-box;
+                            padding: 2px 5px;
+                        }
+
+                        p {
+                            margin: 5px 0;
+                        }
+
+                        p.description {
+                            height: 30px;
+                        }
+
+                        p.name {
+                            font-size: 16px;
+                        }
+
+                        p.activityType {
+                            margin-bottom: 15px;
+                        }
+
+                        img#edit {
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            width: 20px;
+                        }
                     }
 
 

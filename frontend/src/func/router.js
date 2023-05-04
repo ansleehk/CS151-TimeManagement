@@ -17,6 +17,9 @@ const LazyRoutine = lazy(() => import("../pages/routines/viewRoutine"))
 const LazyLogin = lazy(() => import("../pages/login"))
 const LazyRegister = lazy(() => import("../pages/register"))
 const LazyUpdateRoutine = lazy(() => import("../pages/routines/updateRoutine"));
+const LazyCreateEvent = lazy(() => import("../pages/createEvent"));
+const LazyUpdateEvent = lazy(() => import("../pages/updateEvent"));
+const LazyUserInfo = lazy(() => import("../pages/userInfo"));
 
 const AppLayout = () => {
     return (
@@ -69,7 +72,19 @@ export const router = createBrowserRouter([
                         path: "*",
                         element: <LazyError />
                     },
-
+                    {
+                        path: "event",
+                        children: [
+                            {
+                                path: "create",
+                                element: <LazyCreateEvent />
+                            },
+                            {
+                                path: "update/:id",
+                                element: <LazyUpdateEvent />
+                            }
+                        ]
+                    },
                     {
                         path: "auth",
                         children: [
@@ -80,8 +95,11 @@ export const router = createBrowserRouter([
                             {
                                 path: "register",
                                 element: <LazyRegister />
+                            },
+                            {
+                                path: "user-info",
+                                element: <LazyUserInfo />
                             }
-                            
                         ]
 
                     }
