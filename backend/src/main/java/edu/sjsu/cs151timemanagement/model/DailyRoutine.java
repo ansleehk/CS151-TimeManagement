@@ -29,7 +29,10 @@ public class DailyRoutine extends Activity{
         this.startTime = startTime;
         this.endTime = endTime;
     }
+    
 
+    // Getters and Setters
+    
     public LocalDate getEndDate() {
         return endDate;
     }
