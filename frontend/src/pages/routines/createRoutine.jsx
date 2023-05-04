@@ -112,12 +112,10 @@ function TimeForm(props) {
                 ...props.formData
             }
 
-            console.log(ROUTINE_INFO)
     
             const HTTP_RES = await axios.post(`${process.env.REACT_APP_SERVER_URL}/${getUserIdFromCookie()}/daily-routine`, ROUTINE_INFO);
 
-            console.log(HTTP_RES.data);
-    
+            document.location.replace("/");
         } catch (err) {
 
         }
