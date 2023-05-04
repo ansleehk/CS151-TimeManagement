@@ -22,6 +22,7 @@ public class DailyRoutineService {
     @Autowired
     private DayScheduleService dayScheduleService;
 
+    // Method to help see if DailyRoutine exists. 
     private DailyRoutine verifyIsRoutineExist(String routineId, String userId) {
         Optional<DailyRoutine> optionalRoutine = dailyRoutineRepository.findById(routineId, userId);
 
@@ -31,7 +32,7 @@ public class DailyRoutineService {
 
         return optionalRoutine.get();
     }
-
+    // Creating a DailyRoutine object that'll be used to display information onto the calendar. 
     public ResponseEntity<String> createDailyRoutine(
             String title,
             String description,
@@ -54,7 +55,7 @@ public class DailyRoutineService {
         DailyRoutine routine = verifyIsRoutineExist(routineId, userId);
         return ResponseEntity.ok(routine);
     }
-
+    // Updates the DailyRoutine if the user decides to change it with new information. 
     public ResponseEntity<DailyRoutine> updateDailyRoutine(String routineId,
                                                            String title,
                                                            String description,
@@ -80,7 +81,7 @@ public class DailyRoutineService {
         dayScheduleService.updateActivity(routine, userId);
         return ResponseEntity.ok(routine);
     }
-
+    // Checks to see if the daily routine exists and deletes accordingly if it matches with the routineId and user's account. 
     public ResponseEntity<String> deleteDailyRoutine(String routineId, String userId) {
         DailyRoutine routine = verifyIsRoutineExist(routineId, userId);
         dailyRoutineRepository.deleteById(routineId, userId);
