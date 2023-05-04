@@ -3,25 +3,79 @@ import { useEffect, useState } from "react";
 import CalendarData from "../data/calendar.json";
 import ArrowIcon from "./img/right-arrow.png";
 import { getDaysInMonth } from "../func/date.js";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { getUserIdFromCookie } from "../func/auth";
 
 function Day(props) {
+
+  const DATE = new Date(props.day).toISOString().slice(0, 10);
+
+  const [activityElements, setActivityElements] = useState([]);
+
+  const fetchActivitiesList = async () => {
+
+    const fetchEvent = async (eventId) => {
+      const HTTP_RES = (await axios.get(`${process.env.REACT_APP_SERVER_URL}/${getUserIdFromCookie()}/event/${eventId}`)).data
+      return HTTP_RES;
+    }
+
+    const fetchDailyRoutine = async (routineId) => {
+      const HTTP_RES = (await axios.get(`${process.env.REACT_APP_SERVER_URL}/${getUserIdFromCookie()}/daily-routine/${routineId}`)).data
+      return HTTP_RES;
+    }
+
+    try {
+      const HTTP_RES = (await axios.get(`${process.env.REACT_APP_SERVER_URL}/${getUserIdFromCookie()}/day-schedule/day/${DATE}`)).data;
+  
+      const activitiesList = new Array(...HTTP_RES);
+  
+      const activityElementPromises = activitiesList.map(async (activity, index) => {
+        const ACTIVITY_ORIGIN_ID = activity["originActivityId"];
+  
+        if (activity["activityType"] === "Event") {
+          const EVENT_INFO = await fetchEvent(ACTIVITY_ORIGIN_ID);
+          return (
+            <li className="event" key={index}>
+              <span className="name">{EVENT_INFO["title"]}</span>
+              <span className="priority">{EVENT_INFO["priority"]}</span>
+              <div className="activityInfo"></div>
+            </li>
+          );
+        } else {
+          const ROUTINE_INFO = await fetchDailyRoutine(ACTIVITY_ORIGIN_ID);
+          return (
+            <li className="routine" key={index}>
+              <span className="name">{ROUTINE_INFO["title"]}</span>
+              <span className="priority">{ROUTINE_INFO["priority"]}</span>
+              <div className="activityInfo"></div>
+            </li>
+          );
+        }
+      });
+  
+      const resolvedActivityElements = await Promise.all(activityElementPromises);
+      setActivityElements(resolvedActivityElements);
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        if (err.status !== 404) throw err;
+      }
+    }
+
+  }
+
+  useEffect(() => {
+    fetchActivitiesList()
+  }, [])
+
   return (
     <div className="day">
-      <span>{props.day}</span>
+      <span>
+        {props.day.getDate()}
+      </span>
       <ol>
-        {props.activitiesList.map((activity, index) => (
-          <li
-            key={index}
-            className={activity.activityType.toLowerCase()}
-          >
-            <span className="name">{activity}</span>
-            <span className="time">
-              {activity.startTime} - {activity.endTime}
-            </span>
-          </li>
-        ))}
+        {
+          activityElements
+        }
       </ol>
     </div>
   );
@@ -31,28 +85,16 @@ function Day(props) {
 function CalendarDayContainer(props) {
   let dayItems = [];
   const VIEWING_MONTH = new Date(props.date);
-  const DAYS_IN_A_MONTH = getDaysInMonth(props.date.getFullYear(), props.date.getMonth())
-  for (let i = 0; i < DAYS_IN_A_MONTH; i++) {
-    dayItems.push(<Day key={i} day={i + 1} activitiesList={[]} />);
+  const DAYS_IN_A_MONTH = getDaysInMonth(props.date.getFullYear(), props.date.getMonth());
+
+  for (let i = 1; i < DAYS_IN_A_MONTH; i++) {
+    let dayOfMonth = i.toString();
+    if (dayOfMonth.length !== 2) dayOfMonth = "0" + dayOfMonth;
+
+
+    const COMPLETE_DAY = new Date(`${VIEWING_MONTH.getFullYear()}-${VIEWING_MONTH.getMonth() + 1}-${dayOfMonth}`);
+    dayItems.push(<Day key={i - 1} day={COMPLETE_DAY} />);
   }
-
-  let month = (VIEWING_MONTH.getMonth() + 1).toString();
-  if (month.length !== 2) month = "0" + month;
-  console.log(month)
-
-  const getDaySchedule = async() =>{
-    const HTTP_RES = (await axios.get(`${process.env.REACT_APP_SERVER_URL}/${getUserIdFromCookie()}/day-schedule/month/${VIEWING_MONTH.getFullYear()}-${month}`)).data;
-    Object.keys(HTTP_RES).forEach((date, index)=>{
-      const DATE = new Date(date);
-      const DAY = DATE.getDate();
-      dayItems[DAY-1] = <Day key={DAY-1} day={DAY} activitiesList={HTTP_RES[index]} />;
-      console.log(dayItems)
-    })
-  }
-
-  useEffect(()=>{ 
-    getDaySchedule()
-  }, [props.date])
 
   return (
     <main id="calendar-day-container">
