@@ -1,0 +1,132 @@
+@import "../../../styles/global";
+
+div#view-routine-page {
+    div.left-page-container#image-container {
+        background-color: transparent;
+    
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    }
+    
+    div.right-page-container#routine-box{
+        padding: 30px 20px;
+        div#routine-list-container {
+            width: 100%;
+            height: 80%;
+            overflow-y: scroll;
+            padding: 5px;
+            box-sizing: border-box;
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+
+                li.routine{
+                    margin: 10px 0;
+                    position: relative;
+                    padding: 5px 10px;
+                    box-sizing: border-box;
+                    display: block;
+                    width: 100%;
+                    height: 100px;
+                    border: 1px solid black;
+                    color: black;
+                    border-radius: 20px;
+                    box-shadow: 0 5px 10px gray;
+
+                    span#priority{
+                        width: 30px;
+                        height: 30px;
+                        position: absolute;
+                        display: block;
+                        font-size: 20px;
+                        top: 50%;
+                        left: 20px;
+                        transform: translateY(-50%);
+                        border-radius: 50%;
+                        border: 1px solid black;
+                        padding: 3px 0;
+                        box-sizing: border-box;
+                        box-shadow: 0 2px 5px grey;
+                        background-color: $supplementary-color-3;
+                    }
+
+                    div#routine-info {
+                        height: 100%;
+                        padding: 15px 10px;
+                        box-sizing: border-box;
+                        text-align: left;
+                        width: 85%;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+
+                        span#title{
+                            display: block;
+                            width: 70%;
+                            height: 30px;
+                            margin: 0;
+
+                        }
+
+                        p#description {
+                            margin: 0;
+                            display: block;
+                            width: 70%;
+                            height: 45px;
+                            font-size: 14px;
+                            color: gray;
+                        }
+                    }
+
+                    div#time {
+                        font-size: 12px;
+                        position: absolute;
+                        right: 13px;
+                        top: 25px;
+                        width: 100px;
+                        height: 30px;
+                        text-align: right;
+                    }
+
+                    div#occur-days {
+                        width: 130px;
+                        height: 33px;
+                        position: absolute;
+                        right: 10px;
+                        bottom: 5px;
+
+                        ul{
+                            display: flex;
+                            overflow: hidden;
+                            flex-direction: row-reverse;
+                            li.occurDaysOfWeek {
+                                margin: 0 2px;
+                                text-transform: capitalize;
+                                font-size: 12px;
+                                padding-top: 10px;
+                                box-sizing: border-box;
+                                width: 33px;
+                                height: 33px;
+                                border-radius: 50%;
+                                border: 1px solid gray;
+                            }
+                        }
+                    }
+
+
+                }
+
+                li.routine:hover {
+                    filter: brightness(1.1);
+                    cursor: pointer;
+                }
+
+            }
+        }
+    }
+}

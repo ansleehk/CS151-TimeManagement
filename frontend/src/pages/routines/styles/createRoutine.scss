@@ -46,15 +46,8 @@ div#CreateRoutinePage {
     div.right-page-container#name-form-container {
         form {
             position: relative;
-            top: 60px;
-            height: 200px;
-            label {
-                font-style: normal;
-                font-weight: normal;
-                font-size: 14px;
-                position: relative;
-                bottom: 20px;
-            }
+            top: 10px;
+            height: 270px;
 
             input[type="text"] {
                 position: relative;
@@ -64,28 +57,59 @@ div#CreateRoutinePage {
                 margin: 10px;
                 width: 240px;
                 height: 30px;
-
-                border: 1px solid $primary-color;
-                                
+                border: 1px solid $primary-color;                    
             }
+
+            input[type="text"]#description {
+                height: 70px;
+            }
+
+
             input[type="text"]::placeholder {
                 color: rgb(113, 113, 113);
             }
 
+            div#priority{
+                width: 100%;
+                height: 50px;
+                position: relative;
+                top: 10px;
+                padding: 10px 0;
+                box-sizing: border-box;
 
+                label#priority{
+                    position: relative;
+                    right: 5px;
+                }
+
+                select{
+                    position: relative;
+                    left: 5px;
+                    width: 120px;
+                    height: 30px;
+                    text-align: center;
+                    border-radius: 15px;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+            }
+
+            input[type="submit"]{
+                position: absolute;
+                bottom: 0;
+            }
         }
     }
 
     div.right-page-container#time-form-container {
         form {
-            padding: 10px 0;
+            padding: 0 0;
             height: 260px;
+
             ol {
                 position: relative;
                 left: 40px;
                 width: 80%;
-
-                margin-bottom: 30px;
                 list-style: none;
                 text-align: center;
                 padding: 0;
@@ -95,11 +119,10 @@ div#CreateRoutinePage {
                     white-space: nowrap;
                 }
             }
-            div.time-checkbox-container {
-                margin: 5px 0;
+            div.date-time-container {
+                margin: 2px 0;
                 width: 100%;
                 height: 40px;
-
                 position: relative;
                 padding: 5px 10px;
                 box-sizing: border-box;
@@ -111,7 +134,7 @@ div#CreateRoutinePage {
                     top: 10px;
                 }
 
-                input[type="time"]{
+                input[type="time"] {
                     padding: 2px 8px;
                     box-sizing: border-box;
                     position: absolute;
@@ -121,6 +144,24 @@ div#CreateRoutinePage {
                     height: 25px;
                     width: 140px;
                 }
+
+                input[type="date"] {
+                    padding: 2px 8px;
+                    box-sizing: border-box;
+                    position: absolute;
+                    bottom: 4px;
+                    right: 70px;
+                    margin: 5px;
+                    height: 25px;
+                    width: 140px;
+                }
+                
+
+            }
+
+            input[type="submit"] {
+                position: absolute;
+                bottom: 45px;
             }
         }
     }

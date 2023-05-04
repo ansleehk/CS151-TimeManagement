@@ -16,6 +16,7 @@ const LazyCalendar = lazy(() => import("../pages/calendar"));
 const LazyRoutine = lazy(() => import("../pages/routines/viewRoutine"))
 const LazyLogin = lazy(() => import("../pages/login"))
 const LazyRegister = lazy(() => import("../pages/register"))
+const LazyUpdateRoutine = lazy(() => import("../pages/routines/updateRoutine"));
 
 const AppLayout = () => {
     return (
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
                             {
                                 path: "create",
                                 element: <LazyCreateRoutine />
+                            },
+                            {
+                                path: "update/:id",
+                                element: <LazyUpdateRoutine />
                             }
                         ]
                     },
