@@ -7,5 +7,6 @@ export const getUserIdFromCookie = () => {
 }
 
 export const logout = () => {
-    Cookies.remove(USER_ID_COOKIE_KEY)
+    Cookies.remove(USER_ID_COOKIE_KEY);
+    document.location.replace("/");
 }

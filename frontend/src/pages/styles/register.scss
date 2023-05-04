@@ -5,7 +5,7 @@ div#registration {
     transform: translate(-50%,-50%);
     border-radius: 5%;
     width: 450px;
-    height: 500px;
+    height: 550px;
     background-color: white;
 
     div#header {
@@ -20,7 +20,7 @@ div#registration {
     form {
         position: absolute;
         bottom: 0;
-        height: 350px;
+        height: 400px;
         width: 100%;
         padding: 10px 20px;
         box-sizing: border-box;
@@ -35,9 +35,26 @@ div#registration {
             width: 80%;
         }
 
-        input[type=date] {
-
+        input::placeholder{
+            color: grey;
         }
+
+        input[type="date"]{
+            height: 60px;
+            padding: 10px 20px;
+        }
+
+        input[type="date"]:before {
+            content: attr(placeholder) !important;
+            color: #aaa;
+            margin-right: 0.5em;
+          }
+
+        input[type="date"]:focus:before,
+        input[type="date"]:valid:before {
+          content: "";
+        }
+
 
         div#name-container {
 

@@ -128,7 +128,7 @@ function TimeForm(props) {
     return (
         <div className="page-container right-page-container form-container" id="time-form-container">
             <h1 id="new-routine">
-                Create a new routine
+                Update the routine
             </h1>
             <p id="slogan">
                 Streamline Your Day, Unlock Success, Savor Life
@@ -164,7 +164,7 @@ function TimeForm(props) {
     )
 }
 
-export default function CreateRoutinePage() {
+export default function UpdateRoutinePage() {
     const [page, setPage] = useState(1);
 
     const [formData, setFormData] = useState();

@@ -36,9 +36,9 @@ public class DayScheduleController {
         return dayScheduleService.getDaySchedule(userId, LocalDate.parse(date));
     }
 
-    @GetMapping("/month/{month}")
-    public ResponseEntity<Map<LocalDate, ArrayList<ScheduledDayActivity>>> getDayScheduleInMonth(@PathVariable String month){
-        return dayScheduleService.getAllDayScheduleInMonth(userId, YearMonth.parse(month));
+    @GetMapping("/month/{yearMonth}")
+    public ResponseEntity<Map<LocalDate, ArrayList<ScheduledDayActivity>>> getDayScheduleInMonth(@PathVariable String yearMonth){
+        return dayScheduleService.getAllDayScheduleInMonth(userId, YearMonth.parse(yearMonth));
     }
 
 
