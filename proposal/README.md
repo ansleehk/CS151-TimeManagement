@@ -27,10 +27,10 @@ Members working on the proposal:
 ## Presentation Contributions
 - Benjamin
   - Created presentation slides
-  - Discussed backend/frontend components
+  - Discussed slides relating to features of the website
 - Anson 
   - Created presentation slides
-  - Discussed backend/frontend components and interactions
+  - Discussed slides relating to data flow, MVC framework, Spring, and networking concepts.
 
 ## Project Contributions
 - Benjamin
