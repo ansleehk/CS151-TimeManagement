@@ -114,32 +114,6 @@ public class DayScheduleService {
             return ResponseEntity.ok(activities);
         }
     }
-
-    private long getOriginalDuration(Activity activity) {
-        if (activity instanceof Event) {
-            Event event = (Event) activity;
-            return event.getStartTime().until(event.getEndTime(), ChronoUnit.MINUTES);
-        } else if (activity instanceof DailyRoutine) {
-            DailyRoutine dailyRoutine = (DailyRoutine) activity;
-            return dailyRoutine.getStartTime().until(dailyRoutine.getEndTime(), ChronoUnit.MINUTES);
-        } else {
-            throw new IllegalArgumentException("Unsupported activity type");
-        }
-    }
-
-    private Activity getOriginActivity(ScheduledDayActivity scheduledDayActivity, String userId) {
-        String originActivityId = scheduledDayActivity.getOriginActivityId();
-        ActivityType activityType = scheduledDayActivity.getActivityType();
-
-        if (activityType == ActivityType.Event) {
-            return eventRepository.findById(originActivityId, userId).get();
-        } else if (activityType == ActivityType.DailyRoutine) {
-            return dailyRoutineRepository.findById(originActivityId, userId).get();
-        } else {
-            throw new IllegalArgumentException("Unsupported activity type");
-        }
-    }
-
     public void scheduleExistingDailyRoutines(String userId, LocalDate startDate, LocalDate endDate) {
         List<DailyRoutine> dailyRoutines = dailyRoutineRepository.findAll(userId);
         for (DailyRoutine dailyRoutine : dailyRoutines) {
