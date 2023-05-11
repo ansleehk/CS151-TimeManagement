@@ -2,11 +2,7 @@
 
 # Time Management
 
-## Live Server
 
-### Preview Server
-This is not the production server. This server is used for previewing the frontend design. It does not connect to our backend service.
-https://cs151-time-management.pages.dev/
 
 ## Running the application
 You should have both frontend and backend running at the same time to get the application works properly.
@@ -24,6 +20,8 @@ npm install
 npm run start
 ```
 
+**Default running port:** 3000
+
 ### Backend
 
 You should have Maven installed on your machine.
@@ -39,3 +37,16 @@ mvn clean install
 cd target
 java -jar cs151-time-management-0.0.1-SNAPSHOT.jar
 ```
+<<<<<<< HEAD
+
+**Default running port:** 8010
+
+## Development
+
+### Frontend Preview Server
+
+This is not the production server. This server is used for previewing the frontend design. It does not connect to our backend service.
+https://cs151-time-management.pages.dev/
+
+=======
+>>>>>>> e60f1f0b4c3ba9af6a620c0743f5c5872bd614d4
