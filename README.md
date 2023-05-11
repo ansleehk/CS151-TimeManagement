@@ -27,7 +27,7 @@ npm run start
 
 You should have Maven installed on your machine.
 
-To install Maven on your Mac.
+To install Maven on a Mac:
 ```zsh
 brew install maven
 ```
