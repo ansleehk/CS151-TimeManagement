@@ -9,6 +9,7 @@ This is not the production server. This server is used for previewing the fronte
 https://cs151-time-management.pages.dev/
 
 ## Running the application
+You should have both frontend and backend running at the same time to get the application works properly.
 
 ### Download
 ```zsh
