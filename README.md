@@ -4,7 +4,7 @@
 
 ![Demonstration](./proposal/img/demo-static.png)
 
-<img src="./proposal/img/demo.gif" width="700">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGYzMTI1YTY3ZmFmMWQzY2JmNTRkY2VhNTllNTc2NDBlNmUyYjY1ZSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/qHoyhyIkskTuRVY8Oz/giphy.gif" width="700">
 
 
 ## Running the application
