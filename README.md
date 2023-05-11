@@ -4,7 +4,7 @@
 
 ![Demonstration](./proposal/img/demo-static.png)
 
-![Demonstration GIF](./proposal/img/demo.gif)
+<img src="./proposal/img/demo.gif" width="700">
 
 
 ## Running the application
