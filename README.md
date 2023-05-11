@@ -4,7 +4,7 @@
 
 ![Demonstration](./proposal/img/demo-static.png)
 
-**Demo Video on YouTube: **
+**Demo Video on YouTube:**
 https://youtu.be/7xLJknSHdqA
 
 
