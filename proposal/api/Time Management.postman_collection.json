@@ -1,0 +1,462 @@
+{
+	"info": {
+		"_postman_id": "57c6f8e1-398a-4c9c-b3f0-563905c98267",
+		"name": "Time Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20961535"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Account Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"username\" : \"test\",\n    \"password\": \"password\",\n    \"birthday\" : \"2001-02-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PORT}}/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"test\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PORT}}/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Account Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/auth/{{userId}}/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"auth",
+								"{{userId}}",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Create Event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Watch Harry Potter\",\n    \"description\": \"With Tim\",\n    \"priority\": 2,\n    \"startTime\": \"2022-12-03T10:15:30\",\n    \"endTime\": \"2022-12-03T10:30:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Event",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Play Basketball\",\n    \"description\": \"With Billy\",\n    \"priority\": 2,\n    \"startTime\": \"2022-12-03T10:15:30\",\n    \"endTime\": \"2022-12-03T10:30:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/event/{{eventId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/event/{{eventId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/event/{{eventId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"event",
+								"{{eventId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch all Events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/event/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"event",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Daily Routine",
+			"item": [
+				{
+					"name": "Create Daily Routine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Study Biology\",\n    \"description\": \"With Jimmy and Thomas\",\n    \"priority\": 3,\n    \"occurDay\": [\"MONDAY\", \"TUESDAY\", \"WEDNESDAY\", \"SATURDAY\"],\n    \"startDate\": \"2022-12-01\",\n    \"endDate\": \"2022-12-20\",\n    \"startTime\": \"10:15\",\n    \"endTime\": \"12:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/daily-routine",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"daily-routine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Daily Routine",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Play Basketball\",\n    \"description\": \"With Billy\",\n    \"priority\": 2,\n    \"startTime\": \"2022-12-03T10:15:30\",\n    \"endTime\": \"2022-12-03T10:30:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/{{userId}}/daily-routine/{{dailyRoutineId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"{{userId}}",
+								"daily-routine",
+								"{{dailyRoutineId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Daily Routine",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/daily-routine/{{dailyRoutineId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"daily-routine",
+								"{{dailyRoutineId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Routine",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Study Biology\",\n    \"description\": \"With Jimmy and Thomas\",\n    \"priority\": 3,\n    \"occurDay\": [\"MONDAY\", \"TUESDAY\", \"WEDNESDAY\", \"SATURDAY\"],\n    \"startDate\": \"2023-06-01\",\n    \"endDate\": \"2023-06-20\",\n    \"startTime\": \"10:15\",\n    \"endTime\": \"12:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/daily-routine/{{dailyRoutineId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"daily-routine",
+								"{{dailyRoutineId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch all Routines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/daily-routine",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"daily-routine"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Day Schedule",
+			"item": [
+				{
+					"name": "Get Day Schedule",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/day-schedule/day/2023-05-03",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"day-schedule",
+								"day",
+								"2023-05-03"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Month Schedule",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/{{userId}}/day-schedule/month/2022-12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"{{userId}}",
+								"day-schedule",
+								"month",
+								"2022-12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "userId",
+			"value": ""
+		},
+		{
+			"key": "eventId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "dailyRoutineId",
+			"value": ""
+		},
+		{
+			"key": "PORT",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

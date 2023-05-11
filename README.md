@@ -2,6 +2,7 @@
 
 # Time Management
 
+![Demonstration](./proposal/img/demo.gif)
 
 
 ## Running the application
@@ -22,6 +23,11 @@ npm run start
 
 **Default running port:** 3000
 
+### Frontend Preview Server
+
+This is not the production server. This server is used for previewing the frontend design. It does not connect to our backend service.
+https://cs151-time-management.pages.dev/
+
 ### Backend
 
 You should have Maven installed on your machine.
@@ -33,16 +39,48 @@ brew install maven
 
 ```zsh
 cd backend
-mvn clean install
-cd target
-java -jar cs151-time-management-0.0.1-SNAPSHOT.jar
+mvn spring-boot:run
 ```
+
 
 **Default running port:** 8010
 
+## Architecture
+
+### Tech Stack
+![Tech Stack](./proposal/img/stack.png)
+
+The application utilizes Java Spring framework to build the backend and JavaScript ReactJs framework to build the frontend.
+
+### API Endpoints
+![API Endpoints](./proposal/img/api-endpoints.png)
+
+We utilize the REST API way to allow frontend and backend communication with each other.
+
+Four endpoints are established to allow data flow between frontend and backend.
+- Event: CRUD events.
+    - Path: /{{userId}}/event
+- Routine: CRUD schedules.
+    - Path: /{{userId}}/daily-routine/
+- Day Schedule: Fetch scheduled schedules
+    - Path: /{{userId}}/day-schedule/
+- User Authentication: Account registration and login
+    - Path: /auth/
+
+### Data Flow
+![General Data Flow](./proposal/img/data-flow.png)
+
 ## Development
 
-### Frontend Preview Server
+### API Documentation
 
-This is not the production server. This server is used for previewing the frontend design. It does not connect to our backend service.
-https://cs151-time-management.pages.dev/
+![Postman](./proposal/img/postman.png)
+
+URL: https://documenter.getpostman.com/view/20961535/2s93ebUX5S
+
+### Testing API with Postman
+
+**Download the collection for testing the API with Postman**
+
+[Download Postman Collection](/proposal/api/Time%20Management.postman_collection.json)
+
