@@ -4,7 +4,7 @@
 
 ![Demonstration](./proposal/img/demo-static.png)
 
-**Demo Video on YouTube**
+**Demo Video on YouTube: **
 https://youtu.be/7xLJknSHdqA
 
 
@@ -106,7 +106,7 @@ URL: https://documenter.getpostman.com/view/20961535/2s93ebUX5S
 
 ### Change the port
 
-PORTs are set to be easily manipulated. They are saved in two .env files.
+PORTs are set to be easily manipulated. They are saved in two files.
 
 Frontend
 ```zsh
