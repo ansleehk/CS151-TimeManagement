@@ -19,6 +19,11 @@ public class UserRepository {
         objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        File directory = new File(DATA_DIRECTORY);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
     }
 
     public void save(User user) {
