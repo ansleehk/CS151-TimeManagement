@@ -26,7 +26,7 @@ npm run start
 
 **Default running port:** 3000
 
-### Frontend Preview Server
+#### Frontend Preview Server
 
 This is not the production server. This server is used for previewing the frontend design. It does not connect to our backend service.
 https://cs151-time-management.pages.dev/
