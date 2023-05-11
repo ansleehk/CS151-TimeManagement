@@ -4,7 +4,8 @@
 
 ![Demonstration](./proposal/img/demo-static.png)
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGYzMTI1YTY3ZmFmMWQzY2JmNTRkY2VhNTllNTc2NDBlNmUyYjY1ZSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/qHoyhyIkskTuRVY8Oz/giphy.gif" width="700">
+**Demo Video on YouTube**
+https://youtu.be/7xLJknSHdqA
 
 
 ## Running the application
