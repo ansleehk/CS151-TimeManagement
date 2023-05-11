@@ -12,6 +12,7 @@ public class Cs151TimeManagementApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Cs151TimeManagementApplication.class, args);
+
 	}
 
 }
