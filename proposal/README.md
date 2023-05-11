@@ -13,6 +13,49 @@ Members working on the proposal:
 - Anson
 - Benjamin
 
+
+## Proposal Contributions:
+- Benjamin
+  - Developed the idea of the project
+  - Listed functionalities
+  - Researched alternative applications
+- Anson
+  - Wrote issue to solve paragraphs
+  - Listed functionalities.
+
+
+## Presentation Contributions
+- Benjamin
+  - Created presentation slides
+  - Discussed slides relating to features of the website
+- Anson 
+  - Created presentation slides
+  - Discussed slides relating to data flow, MVC framework, Spring, and networking concepts.
+
+## Project Contributions
+- Benjamin
+  - Frontend Development
+    - Created Login and Register Page
+  - Backend Development
+    - Created model files for the java objects to be used
+    - Created controller files with REST API to help transfer information from backend to frontend
+    - Helped with service and repository files
+  - Project report
+    - Updated class and state diagrams
+    - Wrote individual contributions
+- Anson
+  - Frontend Development
+    - Created main home page and calender page.
+    - Created menu bar
+  - Backend Development
+    - Created service files
+    - Created repository files
+    - Contributed a lot towards backend and frontend interaction
+  - Project report
+    - Updated sequence and use case diagrams
+    - Wrote individual contributions
+
+
 ## Issue to solve
 In today's fast-paced world, time management is more important than ever before, and students are no exception. With academic and social responsibilities constantly competing for their attention, it is easy for students to feel overwhelmed and struggle to stay organized. This can lead to missed deadlines, forgotten assignments, and a general feeling of stress and anxiety.
 
