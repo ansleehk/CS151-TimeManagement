@@ -73,6 +73,23 @@ Four endpoints are established to allow data flow between frontend and backend.
 ### Data Flow
 ![General Data Flow](./proposal/img/data-flow.png)
 
+#### Partially Utilizing MVC
+Our design does not strictly follow the MVC pattern. However, the basic structure is the same.
+
+##### View (V)
+ReactJs is the view for rendering the data.
+
+##### Controllers (C)
+Controllers are the endpoints of the backend.
+
+##### Models (M)
+- Activity
+    - Event
+    - DailyRoutine
+- DaySchedule
+- ScheduledDayActivity
+- User
+
 ## Development
 
 ### API Documentation
@@ -87,3 +104,18 @@ URL: https://documenter.getpostman.com/view/20961535/2s93ebUX5S
 
 [Download Postman Collection](/proposal/api/Time%20Management.postman_collection.json)
 
+### Change the port
+
+PORTs are set to be easily manipulated. They are saved in two .env files.
+
+Frontend
+```zsh
+nano frontend/.env
+// Locate the REACT_APP_SERVER_URL variable and change it
+```
+
+Backend
+```zsh
+nano backend/src/main/resources/application.properties
+// Locate the server.port variable and change it
+```
