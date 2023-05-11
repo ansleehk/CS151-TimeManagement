@@ -33,6 +33,7 @@ brew install maven
 ```
 
 ```zsh
+cd backend
 mvn clean install
 cd target
 java -jar cs151-time-management-0.0.1-SNAPSHOT.jar
