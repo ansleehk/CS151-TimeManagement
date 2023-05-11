@@ -2,7 +2,9 @@
 
 # Time Management
 
-![Demonstration](./proposal/img/demo.gif)
+![Demonstration](./proposal/img/demo-static.png)
+
+![Demonstration GIF](./proposal/img/demo.gif)
 
 
 ## Running the application
@@ -50,7 +52,7 @@ mvn spring-boot:run
 ### Tech Stack
 ![Tech Stack](./proposal/img/stack.png)
 
-The application utilizes Java Spring framework to build the backend and JavaScript ReactJs framework to build the frontend.
+We utilize Java Spring framework to build the backend and JavaScript ReactJs framework to build the frontend.
 
 ### API Endpoints
 ![API Endpoints](./proposal/img/api-endpoints.png)
