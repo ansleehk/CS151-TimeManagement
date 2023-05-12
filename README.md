@@ -58,7 +58,7 @@ We utilize Java Spring framework to build the backend and JavaScript ReactJs fra
 ### API Endpoints
 ![API Endpoints](./proposal/img/api-endpoints.png)
 
-We utilize the REST API way to allow frontend and backend communication with each other.
+We utilize the REST API way to allow frontend and backend communicate with each other.
 
 Four endpoints are established to allow data flow between frontend and backend.
 - Event: CRUD events.
@@ -104,17 +104,17 @@ URL: https://documenter.getpostman.com/view/20961535/2s93ebUX5S
 
 [Download Postman Collection](/proposal/api/Time%20Management.postman_collection.json)
 
-### Change the port
+### Changing the port
 
 PORTs are set to be easily manipulated. They are saved in two files.
 
-Frontend
+#### Frontend
 ```zsh
 nano frontend/.env
 // Locate the REACT_APP_SERVER_URL variable and change it
 ```
 
-Backend
+#### Backend
 ```zsh
 nano backend/src/main/resources/application.properties
 // Locate the server.port variable and change it
